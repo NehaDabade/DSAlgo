@@ -31,8 +31,7 @@ public class VerificationPage extends BasePage {
 
 	@FindBy(id = "output")
 	WebElement runOutPut;
-
-//	String successmsg =
+	
 	String errormsgverify;
 	String output;
 
@@ -49,7 +48,6 @@ public class VerificationPage extends BasePage {
 
 	public boolean isLoginPageExists(String expMsg) {
 		try {
-			// if(loginusername.equals("")|| loginpwd.equals("") )
 
 			if (msgLogin.isDisplayed()) {
 				errormsgverify = msgLogin.getText();
@@ -74,27 +72,15 @@ public class VerificationPage extends BasePage {
 	public boolean isRunEditorValid(String expMsg) throws InterruptedException {
 		try {
 			boolean alertMsg = isAlertPresent();
-			if(alertMsg) {
+			if (alertMsg) {
 				System.out.println(alertMsg
 						+ "INSIDE ALERTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*****************************############################");
 				return alertMsg;
 			} else {
 				output = runOutPut.getText();
-				if (null != output && !output.equalsIgnoreCase("") && expMsg.contains(output.trim())) return (true);
+				if (null != output && !output.equalsIgnoreCase("") && expMsg.contains(output.trim()))
+					return (true);
 			}
-			
-//			if (null != output 
-//					&& !output.equalsIgnoreCase("") 
-//					&& expMsg.contains(output.trim())) {
-//				return (true);
-//			}
-//			else {
-//				//isAlertPresent();
-//				boolean alertMsg = isAlertPresent();
-//				System.out.println(alertMsg
-//						+ "INSIDE ALERTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*****************************############################");
-//				return alertMsg;
-//			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,13 +100,11 @@ public class VerificationPage extends BasePage {
 			// Alert present; set the flag
 			presentFlag = true;
 			// if present consume the alert
-			//alert.accept();
 
 		} catch (NoAlertPresentException ex) {
 			// Alert not present
-			//ex.printStackTrace();
 			presentFlag = false;
-			
+
 		}
 
 		return presentFlag;

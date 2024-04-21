@@ -29,6 +29,10 @@ public class DataReader {
 				for (int j = 0; j < currentRow.getPhysicalNumberOfCells(); j++) {
 					Cell currentCell = currentRow.getCell(j);
 					switch (currentCell.getCellType()) {
+					case NUMERIC:
+						currentHash.put(HeaderRow.getCell(j).getStringCellValue(),
+								Double.toString(currentCell.getNumericCellValue()));
+						break;
 					case STRING:
 						currentHash.put(HeaderRow.getCell(j).getStringCellValue(), currentCell.getStringCellValue());
 						break;

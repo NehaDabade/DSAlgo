@@ -23,23 +23,21 @@ import pageObjects.LoginPage;
 import pageObjects.Stack;
 import pageObjects.VerificationPage;
 import pageObjects.helperClass;
+import utilities.ElementsUtils;
 
 public class BasePage {
 
 	public WebDriver driver;
 	public Properties p;
 	public Logger logger;
+	public helperClass hpc;
+	
 	LoginPage loginObj;
+	ElementsUtils elements;
 	Stack stack;
 	HomePage homeObj;
 	VerificationPage verifyPage;
-	public helperClass hpc;
-	LinkedListPage linkedListPage;
-	
-	public LinkedListPage getLinkedListPage() {
-		return linkedListPage;
-	}
-	
+
 	public VerificationPage getVerifyPage() {
 		return verifyPage;
 	}
@@ -56,8 +54,6 @@ public class BasePage {
 		return stack;
 	}
 
-	// WaitHelper waithelper;
-
 	public LoginPage getLoginObj() {
 		return loginObj;
 	}
@@ -71,8 +67,7 @@ public class BasePage {
 		loginObj = new LoginPage(driver);
 		stack = new Stack(driver);
 		hpc = new helperClass(driver);
-		linkedListPage = new LinkedListPage(driver);
-		// waithelper = new WaitHelper(driver);
+
 	}
 
 	public WebDriver initilizeBrowser() throws IOException {
@@ -100,6 +95,7 @@ public class BasePage {
 			}
 
 			this.driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		} else if (getProperties().getProperty("execution_env").equalsIgnoreCase("local")) {
 			switch (getProperties().getProperty("browser").toLowerCase()) {

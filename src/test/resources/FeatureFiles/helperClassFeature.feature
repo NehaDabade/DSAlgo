@@ -1,11 +1,12 @@
 @tag
 Feature: Reusable Feature
   I want to use this template for my all feature file
-@Main
+
   Background: Successfully navigate to the dsportalapp home page
     Given the user is on the dsportalapp main page
     When the user clicks on the Get Started button
     Then the user navigates to the dsportalapp home page
+    And ensure that user is logged in
 
   @Login
   Scenario: Login with valid data
@@ -36,22 +37,22 @@ Feature: Reusable Feature
       | text            | status |
       | print 'Welcome' | valid  |
 
-  #@RunBtnValid
-  #Scenario Outline: Validate try editor run Page with valid data
-    #Given the user is directed to "<page>" page
-    #When The user enters <text> in tryEditor and user clicks Run button
-    #Then The user will be presented with the Run output <text> <status>
-#
-    #Examples: 
-      #| text            | status |
-      #| print 'Welcome' | valid  |
+  @RunBtnValid
+  Scenario Outline: Validate try editor run Page with valid data
+    Given the user is directed to "<page>" page
+    When The user enters <text> in tryEditor and user clicks Run button
+    Then The user will be presented with the Run output <text> <status>
 
-  #@RunBtnInvalid
-  #Scenario Outline: Validate try editor run Page with invalid data
-    #Given the user is directed to "<page>" page
-    #When The user enters  <text> in tryEditor and user clicks Run button
-    #Then The user will be presented with the Run output <text> <status>
-#
-    #Examples: 
-      #| text              | status  |
-      #| println 'Welcome' | Invalid |
+    Examples: 
+      | text            | status |
+      | print 'Welcome' | valid  |
+
+  @RunBtnInvalid
+  Scenario Outline: Validate try editor run Page with invalid data
+    Given the user is directed to "<page>" page
+    When The user enters  <text> in tryEditor and user clicks Run button
+    Then The user will be presented with the Run output <text> <status>
+
+    Examples: 
+      | text              | status  |
+      | println 'Welcome' | Invalid |
