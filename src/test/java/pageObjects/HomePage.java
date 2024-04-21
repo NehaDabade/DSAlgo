@@ -17,12 +17,6 @@ public class HomePage extends BasePage {
 	
 	@FindBy(xpath="//a[contains(text(), 'Register')]")
 	WebElement lnkRegister;
-
-/*
-	 * @FindBy(linkText = "Register") WebElement lnkRegister1;
-	 * 
-	 * @FindBy(linkText = "Sign in") WebElement lnkSignIn1;
-	 */
 	 
 	
 	  @FindBy(xpath="//a[contains(text(), 'Sign in')]") WebElement lnkSignIn;

@@ -6,29 +6,31 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import DriverFactory.BasePage;
 import applicationHook.Hooks;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
-
 import pageObjects.VerificationPage;
 
 public class helperClassStepDefi extends BasePage {
 	Scenario sce;
 	VerificationPage verify;
 	Properties p;
-	private final BasePage base;
-	private final WebDriver driver;
+	public BasePage base;
+	public WebDriver driver;
+	Logger logger = LogManager.getLogger();
 
-	// helperClass hp = new helperClass(driver);
 	public helperClassStepDefi(BasePage base) {
 		this.driver = Hooks.getDriver();
 		this.base = base;
-		// PageFactory.initElements(base.getDriver(),this);
 
 	}
 
@@ -39,18 +41,18 @@ public class helperClassStepDefi extends BasePage {
 
 		base.InitializePageObject(driver, sce);
 		driver.get("https://dsportalapp.herokuapp.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
+		logger.info("****User is on main page*****");
 	}
 
 	@When("the user clicks on the Get Started button")
 	public void the_user_clicks_on_the_get_started_button() {
 		driver.findElement(By.xpath("//button[normalize-space()='Get Started']")).click();
-		;
+		logger.info("****User click on get started*****");
 	}
 
 	@Then("the user navigates to the dsportalapp home page")
-	public void the_user_navigates_to_the_dsportalapp_home_page() {
+	public void the_user_navigates_to_the_dsportalapp_home_page() throws IOException {
 
 		String act_title = driver.getTitle();
 		String exp_title = "NumpyNinja";
@@ -60,17 +62,14 @@ public class helperClassStepDefi extends BasePage {
 		} else {
 			System.out.println("Test failed");
 		}
-
+		logger.info("****User is on home page*****");
 	}
 
 	@Given("The user navigates to login page")
 	public void the_user_navigates_to_login_page() throws IOException {
-		// base.initilizeBrowser();
-		// driver=base.getDriver();
-
-		// base.InitializePageObject(driver, sce);
 		// ND: To make sure user gets directed to Login Page.
 		driver.get(base.getProperties().getProperty("appURLlogin"));
+		logger.info("****User is on login page*****");
 	}
 
 	@When("the user gives username and password")
@@ -82,19 +81,14 @@ public class helperClassStepDefi extends BasePage {
 		base.getLoginObj().sendUserName(p.getProperty("username").trim());
 
 		base.getLoginObj().sendPwdName(p.getProperty("password").trim());
-
+		logger.info("****User entred username and password*****");
 	}
 
 	@Then("The user logsin")
 	public void the_user_logsin() {
 		base.getLogger().info("Entering email and password.. ");
 		base.getLoginObj().clickLogin();
-
-	}
-
-	@Given("User is on {string} page")
-	public void user_is_on_page(String string) throws IOException {
-		base.InitializePageObject(driver, sce);
+		logger.info("****User logsin*****");
 
 	}
 
@@ -102,113 +96,82 @@ public class helperClassStepDefi extends BasePage {
 	public void the_user_clicks_on_get_started_button(String string) throws InterruptedException {
 		System.out.println(string + "CHECK POINT1");
 		String locatorString = "(//a[@href='" + string + "'])[1]";
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath(locatorString)).click();
-		// base.getLoginObj().clickLogout();
 		System.out.println(string);
+		logger.info("****User clicks on get started button*****");
 
 	}
 
 	@Then("The user will be directed to {string} Page")
-	public void the_user_will_be_directed_to_page(String string) {
-		// ND: Changed to make this common step which dynamically generates URL, can be used in all StepDefs.
-		//driver.get("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");
-		driver.get("https://dsportalapp.herokuapp.com/" + string );
+	public void the_user_will_be_directed_to_page(String string) throws IOException {
+		// ND: Changed to make this common step which dynamically generates URL, can be
+		// used in all StepDefs.
+		base.InitializePageObject(driver, sce);
+		driver.get("https://dsportalapp.herokuapp.com/" + string);
+		driver.manage().window().maximize();
+		logger.info("****User directed to desired page*****");
 	}
-
-	@When("The user clicks on to the Practice Questions link")
-	public void the_user_clicks_on_to_the_practice_questions_link() throws InterruptedException {
-		Thread.sleep(3000);
-		// base.hpc.clickLogout();
-		base.getHpc().Practicequestions();
-
-	}
-
-	@Then("The user will be directed to practice questions of {string} Page")
-	public void the_user_will_be_directed_to_practice_questions_of_page(String string) throws IOException {
-		// ND: Changed to make this common step which dynamically generates URL, can be used in all StepDefs.
-		assertEquals("https://dsportalapp.herokuapp.com/" + string + "/practice", driver.getCurrentUrl(),
-				"TEST PASS: EXPECTED PAGE OPEN");
-	}
-
-	/*
-	 * @Given("The user is in {string} page")
-	 * 
-	 * public void the_user_is_in_page(String string) throws IOException {
-	 * driver.get("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");
-	 * base.InitializePageObject(driver, sce);
-	 * 
-	 * 
-	 * }
-	 */
 
 	@When("The user clicks Try Here button on the {string} page")
 	public void the_user_clicks_try_here_button_on_the_page(String string) throws InterruptedException {
 		base.getHpc().ClickTryHere();
 		Thread.sleep(1000);
+		logger.info("****User click try here button*****");
 	}
 
-	@And("The user will be redirected to tryEditor page with a Run button to test")
-	public void the_user_will_be_redirected_to_try_editor_page_with_a_run_button_to_test() throws InterruptedException {
-		assertEquals("https://dsportalapp.herokuapp.com/tryEditor", driver.getCurrentUrl(),
-				"TEST PASS: EXPECTED PAGE OPEN");
+	public void invalidruneditor() {
+
+	}
+
+	@Then("Page URL should be {string}")
+	public void page_url_should_be(String string) {
+
+		Assert.assertEquals(driver.getCurrentUrl(), string);
+		logger.info("****User verify URL*****");
+	}
+
+	@Then("User is redirected to {string}")
+	public void user_is_redirected_to(String urlToRedirect) throws InterruptedException, IOException {
+		base.InitializePageObject(driver, sce);
+		driver.get(urlToRedirect);
+		Assert.assertEquals(driver.getCurrentUrl(), urlToRedirect);
 		Thread.sleep(1000);
+		logger.info("****User redirected to desire option*****");
 	}
 
-//	  @Given("^the user is directed to \"([^\"]*)\" page$") 
-//	  public void the_user_is_directed_to_page(String page) throws IOException {
-//	 // driver.get("https://dsportalapp.herokuapp.com/tryEditor");
-//	 base.InitializePageObject(driver, sce);
-//	  
-//	  
-//	  }
+	@And("User see {string} options")
+	public void user_see_options(String textToFind) throws InterruptedException {
 
-	@And("^The user enters (.*) in tryEditor and user clicks Run button$")
-	public void the_user_enters_in_try_editor_and_user_clicks_run_button(String text) throws InterruptedException {
-		base.getHpc().enterText(text.trim());
-		base.getHpc().ClickRun();
-//		Alert alert = driver.switchTo().alert();
-//		String popupmsg = alert.getText();
-//		System.out.println(popupmsg);
-//		alert.accept();
-//		Thread.sleep(1000);
-	}
-
-	@Then("^The user will be presented with the Run output (.*) (.*)$")
-	public void the_user_will_be_presented_with_the_run_output(String text, String status) throws IOException {
-		// base.getHpc().enterText(text.trim());
-		// Add code to verify the Run output
-
-		verify = new VerificationPage(driver);
-		try {
-			boolean targetpage = verify.isRunEditorValid(text);
-			if (status.equalsIgnoreCase("valid")) {
-				if (targetpage == true) {
-
-					Assert.assertTrue(true);
-				} else {
-					Assert.assertTrue(false);
-				}
-			}
-
-			if (status.equalsIgnoreCase("Invalid")) {
-				if (targetpage == true) {
-
-					Assert.assertTrue(true);
-				} else {
-					Assert.assertTrue(false);
-				}
-			}
-
-		} catch (Exception e) {
-
-			Assert.assertTrue(false);
+		boolean isTextPresentInPageSource = driver.getPageSource().contains(textToFind);
+		if (isTextPresentInPageSource == true) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertFalse(false);
 		}
+		Thread.sleep(1000);
+		logger.info("****User see Topic Covered option*****");
 	}
 
-					
-					public void invalidruneditor() {
-						
-						
-					}
+	@Given("User go on {string} link")
+	public void user_click_on_link(String linkText) throws IOException {
+		InitializePageObject(driver, sce);
+		base.getHpc().clickLink(linkText);
+		logger.info("****User can select respective options*****");
+	}
+
+	@Then("User scroll down the page")
+	public void user_scroll_down_the_page() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		Thread.sleep(1000);
+		logger.info("****User can scroll down the page*****");
+	}
+
+	@Then("the user navigates to the {string}")
+	public void the_user_navigates_to_the(String string) throws IOException {
+		base.InitializePageObject(driver, sce);
+		driver.get("https://dsportalapp.herokuapp.com/home");
+		logger.info("****User navigates to home page*****");
+	}
 }

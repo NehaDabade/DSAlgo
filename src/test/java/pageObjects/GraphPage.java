@@ -13,41 +13,40 @@ public class GraphPage extends BasePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy (xpath = "/html/body/div[2]/div[7]/div/div/a")
+
+	@FindBy(xpath = "/html/body/div[2]/div[7]/div/div/a")
 	WebElement getstarted;
-	
-	@FindBy (xpath = "/html/body/div[2]/ul[2]/aa")
+
+	@FindBy(xpath = "/html/body/div[2]/ul[2]/aa")
 	WebElement graph;
-	
+
 	@FindBy(xpath = "/html/body/div[2]/div/div[2]/a")
 	WebElement tryherebtn;
-	
-	@FindBy (xpath = "/html/body/div[2]/ul[3]/aa")
+
+	@FindBy(xpath = "/html/body/div[2]/ul[3]/aa")
 	WebElement graphrepresentation;
 
-public void clickLink(String linkHavingText) {
+	public void clickLink(String linkHavingText) {
 
-	WebElement element = driver.findElement(By.xpath("//a[text()='" + linkHavingText + "']"));
-	element.click();
+		WebElement element = driver.findElement(By.xpath("//a[text()='" + linkHavingText + "']"));
+		element.click();
 	}
-	
-public void clickgetstarted() {
+
+	public void clickgetstarted() {
 		getstarted.click();
 	}
-public void clickgraph() {
-	graph.click();
+
+	public void clickgraph() {
+		graph.click();
 
 	}
 
-public void clicktryherebtn() {
-	tryherebtn.click();
-	}
-public void clickgraphrepresentation() {
-	graphrepresentation.click();
+	public void clicktryherebtn() {
+		tryherebtn.click();
 	}
 
-
-
+	public void clickgraphrepresentation() {
+		graphrepresentation.click();
+	}
 
 }

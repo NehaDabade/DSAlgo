@@ -1,5 +1,5 @@
 package stepDefinitions;
 
-public class QueueSteps {
+public class GraphSteps {
 
 }
