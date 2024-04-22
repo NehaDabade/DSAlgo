@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,26 +15,25 @@ public class helperClass extends BasePage {
 	public helperClass(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+
 	}
 
 	@FindBy(xpath = "//a[normalize-space()='Practice Questions']")
 	@CacheLookup
-	WebElement practicequestions;
+	public WebElement practicequestions;
 
 	@FindBy(linkText = "Try here>>>")
-	WebElement tryherebtn;
+	public WebElement tryherebtn;
 
 	@FindBy(xpath = "//form[@id='answer_form']/div/div/div/textarea")
-	WebElement textArea;
-
-	@FindBy(id = "editor")
-	WebElement textAreaCode;
+	// @FindBy(xpath = "//textarea[@autocorrect='off']")
+	public WebElement textArea;
 
 	@FindBy(xpath = "//button[normalize-space()='Run']")
-	WebElement runBtn;
+	public WebElement runBtn;
 
 	@FindBy(linkText = "Sign out")
-	WebElement lnkSignout;
+	public WebElement lnkSignout;
 
 	public void ClickTryHere() {
 		tryherebtn.click();
@@ -49,8 +47,8 @@ public class helperClass extends BasePage {
 		practicequestions.click();
 	}
 
-	public void enterText(String text) {
-		System.out.println(text);
+	public void enterText(String text) throws InterruptedException {
+
 		textArea.sendKeys(text);
 	}
 
@@ -58,6 +56,21 @@ public class helperClass extends BasePage {
 		lnkSignout.click();
 	}
 
+	public boolean urlVerify(String string) {
+		// msgLogin.getText();
+		try {
+			String exp_url = string;
+			String curUrl = driver.getCurrentUrl();
+			if (curUrl.equalsIgnoreCase(exp_url)) {
+				return (true);
+			}
+			return (false);
+		} catch (Exception e) {
+			return (false);
+		}
+
+	}
+	
 	public void clearText() {
 		// Need to clear text which is already present in the textArea.
 		TextIndentation(driver, 1, 45, true);
@@ -76,17 +89,4 @@ public class helperClass extends BasePage {
 		}
 	}
 
-	public void clickLink(String linkHavingText) {
-
-		WebElement element = driver.findElement(By.xpath("//a[@href='" + linkHavingText + "']"));
-		element.click();
-	}
-
-	public String getText() {
-		return textAreaCode.getText();
-	}
-
-	public void clicktryherebtn() {
-		tryherebtn.click();
-	}
 }

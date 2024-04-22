@@ -1,4 +1,4 @@
-package runner;
+package runnerTest;
 
 import org.junit.runner.RunWith;
 
@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = { ".\\src\\test\\resources\\FeatureFiles\\LinkedListFeature.feature" }, 
+		features = { ".\\src\\test\\resources\\FeatureFiles\\Array.feature" }, 
 		glue = { "stepDefinitions", "applicationHook" },
 		plugin = { "pretty", "html:reports/myreport.html", "rerun:target/rerun.txt",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
@@ -17,6 +17,6 @@ import io.cucumber.junit.CucumberOptions;
 		publish = false // to publish report in cucumber server
 		//tags = "@Login or @LinkedListPage"
 )
-public class TestRunner {
+public class Runner {
 
 }

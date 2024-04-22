@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataReader {
 
-	public static HashMap<String, String> storeValues = new HashMap();
+	static Logger logger = LogManager.getLogger(DataReader.class);
 
 	public static List<HashMap<String, String>> data(String filepath, String sheetName) {
 
@@ -36,13 +38,18 @@ public class DataReader {
 					case STRING:
 						currentHash.put(HeaderRow.getCell(j).getStringCellValue(), currentCell.getStringCellValue());
 						break;
+					default:
+						// Do Nothing
+						break;
 					}
 				}
 				mydata.add(currentHash);
 			}
+			workbook.close();
 			fs.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+			logger.error(e);
 		}
 		return mydata;
 	}

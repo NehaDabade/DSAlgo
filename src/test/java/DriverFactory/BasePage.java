@@ -17,12 +17,16 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.cucumber.java.Scenario;
-import pageObjects.HomePage;
-import pageObjects.LinkedListPage;
-import pageObjects.LoginPage;
-import pageObjects.Stack;
-import pageObjects.VerificationPage;
+import pageObjects.ArrayPage;
+import pageObjects.ArrayPracticePage;
+import pageObjects.DSRegistration;
+import pageObjects.DsIntroduction;
+import pageObjects.GraphPage;
+import pageObjects.SignIn;
+import pageObjects.StackPage;
+import pageObjects.Tree;
 import pageObjects.helperClass;
+import pageObjects.verifyUtil;
 import utilities.ElementsUtils;
 
 public class BasePage {
@@ -30,16 +34,53 @@ public class BasePage {
 	public WebDriver driver;
 	public Properties p;
 	public Logger logger;
-	public helperClass hpc;
-	
-	LoginPage loginObj;
-	ElementsUtils elements;
-	Stack stack;
-	HomePage homeObj;
-	VerificationPage verifyPage;
 
-	public VerificationPage getVerifyPage() {
-		return verifyPage;
+	public helperClass hpc;
+	public ElementsUtils elements;
+	public SignIn loginObj;
+	public StackPage stackObj;
+	public DsIntroduction DsintroObj;
+	public DSRegistration registrationObj;
+	public verifyUtil verifyObj;
+	public GraphPage graphPageObj;
+	public Tree treePageObj;
+	private ArrayPage arrayPage;
+	private ArrayPracticePage arrayPracticePage;
+
+	public ArrayPracticePage getArrayPracticePageObject() {
+		return arrayPracticePage;
+	}
+	
+	public ArrayPage getArrayPageObject() {
+		return arrayPage;
+	}
+
+	public Tree getTreePageObj() {
+		return treePageObj;
+	}
+
+	public void setTreePageObj(Tree treePageObj) {
+		this.treePageObj = treePageObj;
+	}
+
+	public GraphPage getGraphPageObj() {
+		return graphPageObj;
+	}
+
+	public verifyUtil getVerifyObj() {
+		return verifyObj;
+	}
+
+	public DSRegistration getRegistrationObj() {
+		return registrationObj;
+	}
+
+	public DsIntroduction getDsintroObj() {
+		return DsintroObj;
+	}
+
+	public StackPage getStackObj() {
+		return stackObj;
 	}
 
 	public Properties getP() {
@@ -50,24 +91,26 @@ public class BasePage {
 		return hpc;
 	}
 
-	public Stack getStack() {
-		return stack;
+	public ElementsUtils getElements() {
+		return elements;
 	}
 
-	public LoginPage getLoginObj() {
+	public SignIn getLoginObj() {
 		return loginObj;
 	}
 
-	public HomePage getHomeObj() {
-		return homeObj;
-	}
-
 	public void InitializePageObject(WebDriver driver, Scenario scenario) throws IOException {
-		homeObj = new HomePage(driver);
-		loginObj = new LoginPage(driver);
-		stack = new Stack(driver);
+		loginObj = new SignIn(driver);
+		stackObj = new StackPage(driver);
 		hpc = new helperClass(driver);
-
+		elements = new ElementsUtils(driver);
+		DsintroObj = new DsIntroduction(driver);
+		registrationObj = new DSRegistration(driver);
+		verifyObj = new verifyUtil(driver);
+		graphPageObj = new GraphPage(driver);
+		treePageObj = new Tree(driver);
+		arrayPage = new ArrayPage(driver);
+		arrayPracticePage = new ArrayPracticePage(driver);
 	}
 
 	public WebDriver initilizeBrowser() throws IOException {
@@ -95,7 +138,6 @@ public class BasePage {
 			}
 
 			this.driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		} else if (getProperties().getProperty("execution_env").equalsIgnoreCase("local")) {
 			switch (getProperties().getProperty("browser").toLowerCase()) {
