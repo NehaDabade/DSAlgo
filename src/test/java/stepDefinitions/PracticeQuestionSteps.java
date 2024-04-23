@@ -75,19 +75,15 @@ public class PracticeQuestionSteps extends BasePage {
 		logger.info("****User verify the practice question page*****");
 	}
 	
-	
-	 
-	@And("The user will be redirected to tryEditor page with a Run button to test")
-	public void the_user_will_be_redirected_to_try_editor_page_with_a_run_button_to_test() throws InterruptedException, IOException {
-		base.InitializePageObject(driver, sce);
-		assertEquals("https://dsportalapp.herokuapp.com/tryEditor", driver.getCurrentUrl(),
-				"TEST PASS: EXPECTED PAGE OPEN");
-		Thread.sleep(1000);
-		logger.info("****User is on try editor page*****");
+	@Then("The user will be redirected to tryEditor page with a Run button to test")
+	public void the_user_will_be_redirected_to_try_editor_page_with_a_run_button_to_test() throws InterruptedException {
+		base.getLogger().info("check for tryeditor page....");
+		String act_url = driver.getCurrentUrl();
+		String exp_url = "https://dsportalapp.herokuapp.com/tryEditor";
+		Assert.assertEquals(exp_url, act_url);
 	}
-	
 
-	@And("The user enters {int} in tryEditor and user clicks Run button")
+	@And("The user enters {int} in tryEditor page and user clicks Run button")
 	public void the_user_enters_in_try_editor_and_user_clicks_run_button(Integer index) throws InterruptedException, IOException {
 		HashMap<String, String> rowData = excelDataPythonCode.get(index);
 		// Read data from excel
@@ -99,7 +95,7 @@ public class PracticeQuestionSteps extends BasePage {
 		logger.info("****User clicks run button*****");
 	}
 
-	@Then("^The user will be presented with the Run output (.*) and status is (.*)$")
+	@Then("^The user will be presented with the run output (.*) and status is (.*)$")
 	public void the_user_will_be_presented_with_the_run_output(Integer index, String status) throws IOException {
 		// Add code to verify the Run output
 

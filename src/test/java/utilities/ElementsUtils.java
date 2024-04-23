@@ -51,7 +51,7 @@ public class ElementsUtils extends BasePage {
 			webElement = wait.until(ExpectedConditions.elementToBeClickable(element));
 		} catch (Throwable e) {
 			//e.printStackTrace();
-			logger.error(e);
+			getLogger().error(e);
 		}
 		return webElement;
 	}
@@ -74,7 +74,7 @@ public class ElementsUtils extends BasePage {
 			alert = wait.until(ExpectedConditions.alertIsPresent());
 		} catch (Throwable e) {
 			//e.printStackTrace();
-			logger.error(e);
+			getLogger().error(e);
 		}
 		return alert;
 	}
@@ -97,7 +97,7 @@ public class ElementsUtils extends BasePage {
 			webElement = wait.until(ExpectedConditions.visibilityOf(element));
 		} catch (Throwable e) {
 			//e.printStackTrace();
-			logger.error(e);
+			getLogger().error(e);
 		}
 		return webElement;
 	}

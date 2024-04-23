@@ -10,43 +10,43 @@ Feature: Reusable Feature
 
   @QueuePage
   Scenario: Validating Implementation of Queue in Python link 
-  	Given The user will be directed to "queue" Page
+  	Given The user is in "queue" page
   	When User scroll down the page
-    And User see "Topics Covered" options
-    And User go on "implementation-lists" link
+    Then User see "Topics Covered" options
+    Then The user clicks on Implementation of Queue in Python page
     And The user clicks Try Here button on the "implementation-lists" page
-    And The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor and user clicks Run button
-    Then The user will be presented with the Run output <code> and status is <status>
+    Then The user will be redirected to tryEditor page with a Run button to test
+    And The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
     Examples: 
       | code  | status  |
       | 0			| valid   |
       | 1			| Invalid |
 
    @QueuePage
-  Scenario: Validating Implementation using collections link 
-  	Given The user will be directed to "queue" Page
+  Scenario: Validating Implementation using collections.deque link 
+  		Given The user is in "queue" page
   	When User scroll down the page
     And User see "Topics Covered" options
-    And User go on "implementation-collections" link
+    Then The user clicks on Implementation using collections.deque page
     And The user clicks Try Here button on the "implementation-collections" page
-    And The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor and user clicks Run button
-    Then The user will be presented with the Run output <code> and status is <status>
+    Then The user will be redirected to tryEditor page with a Run button to test
+    And The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
     Examples: 
       | code  | status  |
       | 0			| valid   |
       | 1			| Invalid |
      
     Scenario: Validating Implementation using array link 
-  	Given The user will be directed to "queue" Page
+  	Given The user is in "queue" page
   	When User scroll down the page
     And User see "Topics Covered" options
-    And User go on "Implementation-array" link
+    Then The user clicks on Implementation using array page
     And The user clicks Try Here button on the "Implementation-array" page
-    And The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor and user clicks Run button
-    Then The user will be presented with the Run output <code> and status is <status>
+    Then The user will be redirected to tryEditor page with a Run button to test
+    And The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
      Examples: 
       | code  | status  |
       | 0			| valid   |
@@ -54,14 +54,14 @@ Feature: Reusable Feature
      
     
     Scenario: Validating Queue Operations link 
-  	Given The user will be directed to "queue" Page
+  	Given The user is in "queue" page
   	When User scroll down the page
     And User see "Topics Covered" options
-    And User go on "QueueOp" link
+    Then The user clicks on Queue Operations page
     And The user clicks Try Here button on the "QueueOp" page
-    And The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor and user clicks Run button
-    Then The user will be presented with the Run output <code> and status is <status>
+    Then The user will be redirected to tryEditor page with a Run button to test
+    And The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
     Examples: 
       | code  | status  |
       | 0			| valid   |

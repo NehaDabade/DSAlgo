@@ -1,4 +1,4 @@
-package runner;
+package runnerTest;
 
 import org.junit.runner.RunWith;
 
@@ -17,6 +17,6 @@ import io.cucumber.junit.CucumberOptions;
 		publish = false // to publish report in cucumber server
 		//tags = "@Login or @LinkedListPage"
 )
-public class TestRunner {
+public class Runner {
 
 }
