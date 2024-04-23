@@ -51,6 +51,7 @@ public class BasePage {
 	private LinkedListPage linkedlistPage;
 	private QueuePage queuepage;
 	
+	
 	public QueuePage getQueuePage() {
 		return queuepage;
 	}

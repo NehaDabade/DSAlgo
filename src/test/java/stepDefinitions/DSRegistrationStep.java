@@ -70,7 +70,7 @@ public class DSRegistrationStep extends BasePage{
 			//vp= new verifyUtil(driver);
 			
 			try {
-				boolean targetpage = base.getVerifyObj().isRunEditorValid(message);
+				boolean targetpage = base.getVerifyObj().isLoginPageExists(message);
 				if (status.equalsIgnoreCase("valid"))
 
 				{
