@@ -1,4 +1,3 @@
-@tag
 Feature: Reusable Feature
   I want to use this template for my all feature file
 
@@ -10,13 +9,13 @@ Feature: Reusable Feature
     
   @GraphPage
   Scenario: Validating Graph link 
-  	Given The user will be directed to "graph" Page
+  	Given The user is in "graph" page
     When User see "Topics Covered" options
-    Then User go on "graph" link
+    Then The user clicks on Graph page
     When The user clicks Try Here button on the "Graph" page
     Then The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor and user clicks Run button
-    Then The user will be presented with the Run output <code> and status is <status>
+    And The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
     Examples: 
       | code  | status  |
       | 0			| valid   |
@@ -24,13 +23,14 @@ Feature: Reusable Feature
       
   @GraphPage
   Scenario: Validating Graph Representations link 
-  	Given The user will be directed to "graph" Page
+  	Given The user is in "graph" page
     When User see "Topics Covered" options
-    Then User go on "graph-representations" link 
+    Then The user clicks on Graph Representation page
+    Then User scroll down the page
     When The user clicks Try Here button on the "Graph Representations" page
     Then The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor and user clicks Run button
-    Then The user will be presented with the Run output <code> and status is <status>
+    And The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
     Examples: 
       | code  | status  |
       | 0			| valid   |

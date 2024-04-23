@@ -22,6 +22,8 @@ import pageObjects.ArrayPracticePage;
 import pageObjects.DSRegistration;
 import pageObjects.DsIntroduction;
 import pageObjects.GraphPage;
+import pageObjects.LinkedListPage;
+import pageObjects.QueuePage;
 import pageObjects.SignIn;
 import pageObjects.StackPage;
 import pageObjects.Tree;
@@ -46,7 +48,17 @@ public class BasePage {
 	public Tree treePageObj;
 	private ArrayPage arrayPage;
 	private ArrayPracticePage arrayPracticePage;
-
+	private LinkedListPage linkedlistPage;
+	private QueuePage queuepage;
+	
+	public QueuePage getQueuePage() {
+		return queuepage;
+	}
+	
+	public LinkedListPage getLinkedListPage() {
+		return linkedlistPage;
+	}
+	
 	public ArrayPracticePage getArrayPracticePageObject() {
 		return arrayPracticePage;
 	}
@@ -111,6 +123,8 @@ public class BasePage {
 		treePageObj = new Tree(driver);
 		arrayPage = new ArrayPage(driver);
 		arrayPracticePage = new ArrayPracticePage(driver);
+		linkedlistPage = new LinkedListPage(driver);
+		queuepage = new QueuePage(driver);
 	}
 
 	public WebDriver initilizeBrowser() throws IOException {

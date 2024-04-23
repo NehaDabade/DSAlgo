@@ -11,11 +11,11 @@ Feature: Reusable Feature
   @ArrayPage
   Scenario: Validating Arrays in Python link 
   	Given The user is in "array" page
-    And User see "Topics Covered" options
-    And The user clicks on Arrays in Python page
-    And User scroll down the page
-    And The user clicks Try Here button on the "arrays in python" page
-    And The user will be redirected to tryEditor page with a Run button to test
+    When User see "Topics Covered" options
+    Then The user clicks on Arrays in Python page
+    Then User scroll down the page
+    When The user clicks Try Here button on the "arrays in python" page
+    Then The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
     Examples: 
@@ -26,10 +26,10 @@ Feature: Reusable Feature
   @ArrayPage
   Scenario: Validating Arrays Using List link
     Given The user is in "array" page
-    And User see "Topics Covered" options
-    And The user clicks on Arrays using list page
-    And The user clicks Try Here button on the "arrays-using-list" page
-    And The user will be redirected to tryEditor page with a Run button to test
+    When User see "Topics Covered" options
+    Then The user clicks on Arrays using list page
+    Then The user clicks Try Here button on the "arrays-using-list" page
+    When The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
    Examples: 
@@ -40,10 +40,10 @@ Feature: Reusable Feature
 	@ArrayPage
   Scenario: Validating Basic operations in lists link 
     Given The user is in "array" page
-    And User see "Topics Covered" options
-    And The user clicks on Basic Operations In Lists page
-    And The user clicks Try Here button on the "basic operations in list" page
-    And The user will be redirected to tryEditor page with a Run button to test
+    When User see "Topics Covered" options
+    Then The user clicks on Basic Operations In Lists page
+    Then The user clicks Try Here button on the "basic operations in list" page
+    When The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
    Examples: 
@@ -54,10 +54,10 @@ Feature: Reusable Feature
 	@ArrayPage
   Scenario: Validating Applications of Array link 
     Given The user is in "array" page
-    And User see "Topics Covered" options
-    And The user clicks on Applications of Arrays page 
-    And The user clicks Try Here button on the "applications of array" page
-    And The user will be redirected to tryEditor page with a Run button to test
+    When User see "Topics Covered" options
+    Then The user clicks on Applications of Arrays page 
+    Then The user clicks Try Here button on the "applications of array" page
+    When The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
    Examples: 

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import DriverFactory.BasePage;
 
 public class ArrayPage extends BasePage {
-
+	
 	@FindBy(xpath = "//a[normalize-space()='Arrays in Python']")
 	public WebElement arraysInPython;
 	@FindBy(xpath = "//a[normalize-space()='Arrays Using List']")
@@ -22,5 +22,4 @@ public class ArrayPage extends BasePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
 }
