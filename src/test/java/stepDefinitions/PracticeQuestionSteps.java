@@ -66,7 +66,7 @@ public class PracticeQuestionSteps extends BasePage {
 		base.getHpc().clearText();
 		logger.info("****User can clear the code*****");
 	}
-
+	 	
 	@Then("The user will be directed to practice questions of {string} Page")
 	public void the_user_will_be_directed_to_practice_questions_of_page(String string) throws IOException {
 		// make this common step which dynamically generates URL, can be used in all StepDefs.
