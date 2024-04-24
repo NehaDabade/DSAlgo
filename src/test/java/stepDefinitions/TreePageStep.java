@@ -130,6 +130,6 @@ public class TreePageStep extends BasePage {
 	  base.getElements().clickOnElement(base.getTreePageObj().implementationOfBstLink,0);
 	  }
 	 
-
+//Check point
 
 }
