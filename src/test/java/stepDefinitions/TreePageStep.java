@@ -2,9 +2,12 @@ package stepDefinitions;
 
 import java.io.IOException;
 
+import org.testng.Assert;
+
 import DriverFactory.BasePage;
 import applicationHook.Hooks;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TreePageStep extends BasePage {
@@ -29,7 +32,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the implementation page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().terminologies,0);
-	    
 	}
 	
 	@When("the user clicks on types-of-trees link")
@@ -37,8 +39,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the types-of-trees page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().typesTrees,0);
-		
-	    
 	    
 	}
 	
@@ -49,8 +49,6 @@ public class TreePageStep extends BasePage {
 		base.getElements().clickOnElement(base.getTreePageObj().Traversals,0);
 		
 	}
-	
-	
 
 
 	@When("the user clicks on traversals-illustration link")
@@ -58,7 +56,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the Traversals page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().traversalIllustration,0);
-		System.out.println("New changes");
 	   
 	}
 
@@ -68,7 +65,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the Traversals page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().Binarytree,0);
-		Thread.sleep(3000);
 	   
 	}
 	@When("the user clicks on types-of-binary-trees link")
@@ -76,10 +72,7 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the Traversals page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().typesOfBinaryLink,0);
-		
 	}
-	
-	
 	
 	@When("the user clicks on implementation-in-python link")
 	public void the_user_clicks_on_implementation_in_python_link() throws IOException {
@@ -102,9 +95,6 @@ public class TreePageStep extends BasePage {
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().implementationOfBinaryLink,0);
 	}
-
-	
-	
 	
 	@When("the user clicks on applications-of-binary-trees link")
 	public void the_user_clicks_on_applications_of_binary_trees_link() throws IOException {
@@ -128,6 +118,16 @@ public class TreePageStep extends BasePage {
 	  base.InitializePageObject(driver, sce);
 	  base.getElements().clickOnElement(base.getTreePageObj().implementationOfBstLink,0);
 	  
+	  }
+	  
+	  @Then("The user will be directed to practice questions of the Page {string}")
+	  public void the_user_will_be_directed_to_practice_questions_of_the_page(String string) {
+		  base.getLogger().info("the_user_will_be_directed_to_practice_questions_of_page");
+			String baseUrl = "https://dsportalapp.herokuapp.com/";
+			String url = baseUrl.concat(string.toLowerCase() + "/" + "practice"); // Concatenate base URL with section and
+																					// slash
+			String act_url = driver.getCurrentUrl();
+			Assert.assertEquals(url, act_url);
 	  }
 	  
 	 

@@ -111,9 +111,13 @@ Feature: Reusable Feature
 
   @practiceQuestions
   Scenario: Validate Practice Questions Page
-    Given User is redirected to "https://dsportalapp.herokuapp.com/linked-list/deletion-in-linked-list/"
-    When The user clicks on to the Practice Questions link
-    Then The user will be directed to practice questions of "linked-list" Page
-    Then the user navigates to the "https://dsportalapp.herokuapp.com/home"
+    Given The user is in "linked-list" page
+    When User see "Topics Covered" options
+    Then User scroll down the page
+    Then The user clicks on Insertion page
+    And The user clicks on Practice Questions link 
+     Then The user will be directed to practice questions of the Page "linked-list"
+    
+    
 
     

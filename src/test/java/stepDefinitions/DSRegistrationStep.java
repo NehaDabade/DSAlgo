@@ -27,12 +27,10 @@ public class DSRegistrationStep extends BasePage{
 		  { 
 			  this.driver = Hooks.getDriver(); 
 			  this.base = base;
-			  registrationpage = new DSRegistration(driver);
+			  //registrationpage = new DSRegistration(driver);
+			  registrationpage = base.getRegistrationObj();
 			  element= base.getElements();
-			  //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		  }
-			
-		
 
 		// RegistrationPage registrationPage;
 		@Given("The user opens Register Page")
@@ -66,9 +64,6 @@ public class DSRegistrationStep extends BasePage{
 		@Then("^User should see an error\\/success message(.*),(.*)$")
 		public void user_should_see_an_error_success_message(String message, String status) {
 			base.getLogger().info("Check for error message or popup message...");
-			
-			//vp= new verifyUtil(driver);
-			
 			try {
 				boolean targetpage = base.getVerifyObj().isLoginPageExists(message);
 				if (status.equalsIgnoreCase("valid"))

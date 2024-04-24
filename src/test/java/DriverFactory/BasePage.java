@@ -20,6 +20,7 @@ import io.cucumber.java.Scenario;
 import pageObjects.ArrayPage;
 import pageObjects.ArrayPracticePage;
 import pageObjects.DSRegistration;
+import pageObjects.DataStructureIntro;
 import pageObjects.DsIntroduction;
 import pageObjects.GraphPage;
 import pageObjects.LinkedListPage;
@@ -50,8 +51,13 @@ public class BasePage {
 	private ArrayPracticePage arrayPracticePage;
 	private LinkedListPage linkedlistPage;
 	private QueuePage queuepage;
+	public DataStructureIntro dsiPageObj;
 	
 	
+	public DataStructureIntro getDsiPageObj() {
+		return dsiPageObj;
+	}
+
 	public QueuePage getQueuePage() {
 		return queuepage;
 	}
@@ -126,6 +132,7 @@ public class BasePage {
 		arrayPracticePage = new ArrayPracticePage(driver);
 		linkedlistPage = new LinkedListPage(driver);
 		queuepage = new QueuePage(driver);
+		dsiPageObj = new DataStructureIntro(driver);
 	}
 
 	public WebDriver initilizeBrowser() throws IOException {

@@ -67,11 +67,12 @@ Feature: Reusable Feature
       | 0			| valid   |
       | 1			| Invalid |
      
-     @practiceQuestions
+ @practiceQuestions
   	Scenario: Validate Practice Questions Page
-  	Given User is redirected to "https://dsportalapp.herokuapp.com/queue/QueueOp/"
-    When The user clicks on to the Practice Questions link
-    Then The user will be directed to practice questions of "queue" Page
-    Then the user navigates to the "https://dsportalapp.herokuapp.com/home"
+  	Given The user is in "queue" page
+    When User scroll down the page
+    And The user clicks on Queue Operations page
+    And The user clicks on Practice Questions link 
+    Then The user will be directed to practice questions of the Page "queue" 
 
     
