@@ -17,7 +17,7 @@ public class DataReader {
 
 		try (FileInputStream fs = new FileInputStream(filepath)) { // Use try-with-resources
 			XSSFWorkbook workbook = new XSSFWorkbook(fs);
-			XSSFSheet sheet = workbook.getSheet(sheetname); // Assuming first sheet
+			XSSFSheet sheet = workbook.getSheet(sheetname); 
 			Row HeaderRow = sheet.getRow(0);
 
 			for (int i = 1; i < sheet.getPhysicalNumberOfRows(); i++) {
