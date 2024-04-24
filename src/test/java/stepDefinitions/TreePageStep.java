@@ -73,5 +73,63 @@ public class TreePageStep extends BasePage {
 		Thread.sleep(3000);
 	   
 	}
+	@When("the user clicks on types-of-binary-trees link")
+	public void the_user_clicks_on_types_of_binary_trees_link() throws IOException {
+		base.getLogger().info("On the Traversals page");
+		base.InitializePageObject(driver, sce);
+		base.getElements().clickOnElement(base.getTreePageObj().typesOfBinaryLink,0);
+		
+	}
+	
+	
+	
+	@When("the user clicks on implementation-in-python link")
+	public void the_user_clicks_on_implementation_in_python_link() throws IOException {
+		base.getLogger().info("On the Traversals page");
+		base.InitializePageObject(driver, sce);
+		base.getElements().clickOnElement(base.getTreePageObj().implementationInPythonLink,0);
+		
+	}
+
+	@When("the user clicks on binary-tree-traversals link")
+	public void the_user_clicks_on_binary_tree_traversals_link() throws IOException {
+		base.getLogger().info("On the Traversals page");
+		base.InitializePageObject(driver, sce);
+		base.getElements().clickOnElement(base.getTreePageObj().binaryTreeTraversalsLink,0);
+	}
+
+	@When("the user clicks on implementation-of-binary-trees link")
+	public void the_user_clicks_on_implementation_of_binary_trees_link() throws IOException {
+		base.getLogger().info("On the Traversals page");
+		base.InitializePageObject(driver, sce);
+		base.getElements().clickOnElement(base.getTreePageObj().implementationOfBinaryLink,0);
+	}
+
+	
+	
+	
+	@When("the user clicks on applications-of-binary-trees link")
+	public void the_user_clicks_on_applications_of_binary_trees_link() throws IOException {
+		base.getLogger().info("On the Traversals page");
+		base.InitializePageObject(driver, sce);
+		base.getElements().clickOnElement(base.getTreePageObj().applicationsLink,0);
+	}
+
+	
+	@When("the user clicks on Binary Search Trees link")
+	public void the_user_clicks_on_Binary_Search_Trees_trees_link() throws IOException {
+		base.getLogger().info("On the Traversals page");
+		base.InitializePageObject(driver, sce);
+		base.getElements().clickOnElement(base.getTreePageObj().binarySearchLink,0);
+	}
+	
+	  @When("the user clicks on implementation-of-bst link") 
+	  public void the_user_clicks_on_implementation_of_bst_link() throws IOException {
+	  base.getLogger().info("On the Traversals page");
+	  base.InitializePageObject(driver, sce);
+	  base.getElements().clickOnElement(base.getTreePageObj().implementationOfBstLink,0);
+	  }
+	 
+
 
 }

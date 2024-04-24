@@ -106,6 +106,7 @@ Assert.assertTrue(false);
 			} catch (Exception e) {
 
 				Assert.assertTrue(false);
+				System.err.println("CHECKING GIT");
 			}
 
 
