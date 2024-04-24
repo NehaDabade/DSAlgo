@@ -128,8 +128,11 @@ public class TreePageStep extends BasePage {
 	  base.getLogger().info("On the Traversals page");
 	  base.InitializePageObject(driver, sce);
 	  base.getElements().clickOnElement(base.getTreePageObj().implementationOfBstLink,0);
+	  System.out.println("Check point");
 	  }
+	  
 	 
 //Check point
+	  
 
 }
