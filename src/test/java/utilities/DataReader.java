@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -14,43 +12,52 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataReader {
 
-	static Logger logger = LogManager.getLogger(DataReader.class);
+  public static List<HashMap<String, String>> data(String filepath,String sheetname) {
+    List<HashMap<String, String>> allData = new ArrayList<>();
 
-	public static List<HashMap<String, String>> data(String filepath, String sheetName) {
+    try (FileInputStream fs = new FileInputStream(filepath)) { // Use try-with-resources
+      XSSFWorkbook workbook = new XSSFWorkbook(fs);
+      XSSFSheet sheet = workbook.getSheetAt(0); // Assuming first sheet
+      Row HeaderRow = sheet.getRow(0);
 
-		List<HashMap<String, String>> mydata = new ArrayList<>();
+      for (int i = 1; i < sheet.getPhysicalNumberOfRows(); i++) {
+        Row currentRow = sheet.getRow(i);
+        HashMap<String, String> currentHash = new HashMap<>();
 
-		try {
-			FileInputStream fs = new FileInputStream(filepath);
-			XSSFWorkbook workbook = new XSSFWorkbook(fs);
-			XSSFSheet sheet = workbook.getSheet(sheetName);
-			Row HeaderRow = sheet.getRow(0);
-			for (int i = 1; i < sheet.getPhysicalNumberOfRows(); i++) {
-				Row currentRow = sheet.getRow(i);
-				HashMap<String, String> currentHash = new HashMap<String, String>();
-				for (int j = 0; j < currentRow.getPhysicalNumberOfCells(); j++) {
-					Cell currentCell = currentRow.getCell(j);
-					switch (currentCell.getCellType()) {
-					case NUMERIC:
-						currentHash.put(HeaderRow.getCell(j).getStringCellValue(),
-								Double.toString(currentCell.getNumericCellValue()));
-						break;
-					case STRING:
-						currentHash.put(HeaderRow.getCell(j).getStringCellValue(), currentCell.getStringCellValue());
-						break;
-					default:
-						// Do Nothing
-						break;
-					}
-				}
-				mydata.add(currentHash);
-			}
-			workbook.close();
-			fs.close();
-		} catch (Exception e) {
-			// e.printStackTrace();
-			logger.error(e);
-		}
-		return mydata;
-	}
+        for (int j = 0; j < HeaderRow.getPhysicalNumberOfCells(); j++) {
+            Cell currentCell = currentRow.getCell(j);
+            String cellValue = ""; // Initialize to empty string
+
+            if (currentCell != null) {
+                switch (currentCell.getCellType()) {
+                    case STRING:
+                        cellValue = currentCell.getStringCellValue();
+                        break;
+                    case NUMERIC:
+                        cellValue = Double.toString(currentCell.getNumericCellValue());
+                        break;
+                    case BLANK:
+                        cellValue = ""; // Already set to empty string
+                        break;
+                    // Handle other cell types (e.g., boolean, formula) if needed
+                    default:
+                        // ... (optional handling of other cell types)
+                        break;
+                }
+            } else {
+                // Treat null cells as blank
+                cellValue = "";
+            }
+
+            currentHash.put(HeaderRow.getCell(j).getStringCellValue(), cellValue);
+        }
+
+        allData.add(currentHash);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    return allData;
+  }
 }

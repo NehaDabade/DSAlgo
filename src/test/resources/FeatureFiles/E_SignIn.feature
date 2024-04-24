@@ -9,6 +9,6 @@ Feature: Login Data Driven with Excel
       | row_index |
       |         1 |
       |         2 |
-
-      
-      
+      |         3 |
+      |         4 |
+      |         5 |
