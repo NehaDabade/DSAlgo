@@ -37,7 +37,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the types-of-trees page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().typesTrees,0);
-		Thread.sleep(3000);
 		
 	    
 	    
@@ -48,7 +47,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the Traversals page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().Traversals,0);
-		Thread.sleep(3000);
 		
 	}
 	
@@ -60,7 +58,6 @@ public class TreePageStep extends BasePage {
 		base.getLogger().info("On the Traversals page");
 		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getTreePageObj().traversalIllustration,0);
-		Thread.sleep(3000);
 	   
 	}
 
