@@ -2,6 +2,8 @@ package stepDefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import DriverFactory.BasePage;
@@ -17,19 +19,18 @@ import utilities.ElementsUtils;
 public class DSRegistrationStep extends BasePage{
 	 private final BasePage base;
 		Scenario sce;
-	  
-	     verifyUtil vp;
-	     public ElementsUtils element;
+	     //public ElementsUtils element;
 	     DSRegistration registrationpage;
+	     Actions action;
 	    
 
 		 public DSRegistrationStep(BasePage base) 
 		  { 
 			  this.driver = Hooks.getDriver(); 
 			  this.base = base;
-			  //registrationpage = new DSRegistration(driver);
 			  registrationpage = base.getRegistrationObj();
-			  element= base.getElements();
+			  action =base.getAction();
+			  //element= base.getElements();
 		  }
 
 		// RegistrationPage registrationPage;
@@ -49,13 +50,18 @@ public class DSRegistrationStep extends BasePage{
 				String confirmpwd1) {
 
 			base.getLogger().info("The user fill in the registration form with given data");
-			base.getElements().typeTextIntoElement(registrationpage.username,username1,0);
-
-			base.getElements().typeTextIntoElement(registrationpage.pwd ,password,0);
-			base.getElements().typeTextIntoElement(registrationpage.confpwd,confirmpwd1,0);
+			
+			//base.getElements().typeTextIntoElement(registrationpage.username,username1,0);
+			//base.getElements().typeTextIntoElement(registrationpage.pwd ,password,0);
+			//base.getElements().typeTextIntoElement(registrationpage.confpwd,confirmpwd1,0);
+			Actions action = new Actions(driver);
+			action.moveToElement(registrationpage.username).click().sendKeys(username1).build().perform();
+			action.moveToElement(registrationpage.pwd).click().sendKeys(password).build().perform();
+			action.moveToElement(registrationpage.confpwd).click().sendKeys(confirmpwd1).build().perform();
 			
 	        base.getLogger().info("Clicked on Registration Button");
-	        base.getElements().clickOnElement(registrationpage.btnRegister,0);
+	        action.moveToElement(registrationpage.btnRegister).click().perform();
+	      // base.getElements().clickOnElement(registrationpage.btnRegister,0);
 
 			
 

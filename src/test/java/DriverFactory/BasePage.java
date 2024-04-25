@@ -13,6 +13,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -52,8 +53,17 @@ public class BasePage {
 	private LinkedListPage linkedlistPage;
 	private QueuePage queuepage;
 	public DataStructureIntro dsiPageObj;
+	public Actions action;
 	
 	
+	public Actions getAction() {
+		return action;
+	}
+
+	public void setAction(Actions action) {
+		this.action = action;
+	}
+
 	public DataStructureIntro getDsiPageObj() {
 		return dsiPageObj;
 	}
@@ -133,6 +143,7 @@ public class BasePage {
 		linkedlistPage = new LinkedListPage(driver);
 		queuepage = new QueuePage(driver);
 		dsiPageObj = new DataStructureIntro(driver);
+		action = new Actions(driver);
 	}
 
 	public WebDriver initilizeBrowser() throws IOException {
