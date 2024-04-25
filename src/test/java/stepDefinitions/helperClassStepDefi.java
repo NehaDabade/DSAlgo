@@ -17,6 +17,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.SignIn;
+import pageObjects.helperClass;
 import pageObjects.verifyUtil;
 
 public class helperClassStepDefi extends BasePage {
@@ -25,12 +27,17 @@ public class helperClassStepDefi extends BasePage {
 	Properties p;
 	//private final WebDriver driver;
 	verifyUtil verify;
-	Actions action;
+	 public Actions action;
+	
+	public SignIn login;
+	public helperClass helperclass;
 
 	public helperClassStepDefi(BasePage base) {
 		this.driver = Hooks.getDriver();
 		this.base = base;
 		action =base.getAction();
+		login = base.getLoginObj();
+		helperclass = base.getHpc();
 	}
 
 	@Given("The user navigates to login page")
@@ -44,16 +51,22 @@ public class helperClassStepDefi extends BasePage {
 
 	@When("the user gives username and password")
 	public void the_user_gives_username_and_password() throws IOException {
-		base.getLogger().info("Entering email and password.. ");
+		base.getLogger().info("Entering username and password.. ");
 		//action.moveToElement(registrationpage.confpwd).click().sendKeys(confirmpwd1).build().perform();
-		base.getLoginObj().sendUserName(p.getProperty("username").trim());
-		base.getLoginObj().sendPwdName(p.getProperty("password").trim());
+		Actions action = new Actions(driver);
+		action.moveToElement(login.loginusername).click().sendKeys(p.getProperty("username").trim()).build().perform();
+		action.moveToElement(login.loginpwd).click().sendKeys(p.getProperty("password").trim()).build().perform();
+		//base.getLoginObj().sendUserName(p.getProperty("username").trim());
+		//base.getLoginObj().sendPwdName(p.getProperty("password").trim());
 	}
 
 	@Then("The user logsin")
 	public void the_user_logsin() {
 		base.getLogger().info("User Clicks on Login");
-		base.getLoginObj().clickLogin();
+		Actions action = new Actions(driver);
+		action.moveToElement(login.btnLogin).click().perform();
+		
+		//base.getLoginObj().clickLogin();
 	}
 
 	@Given("User is on {string} page")
@@ -84,7 +97,9 @@ public class helperClassStepDefi extends BasePage {
 	@Then("The user clicks on Practice Questions link")
 	public void the_user_clicks_on_to_the_practice_questions_link() throws InterruptedException {
 		base.getLogger().info("the_user_clicks_on_to_the_practice_questions_link");
-		base.getHpc().Practicequestions();
+		Actions action = new Actions(driver);
+		action.moveToElement(base.getHpc().practicequestions).click().perform();
+		//base.getHpc().Practicequestions();
 	}
 
 	@Then("The user will be directed to practice questions of the Page {string}")
@@ -101,7 +116,9 @@ public class helperClassStepDefi extends BasePage {
 	public void the_user_clicks_try_here_button_on_the_page() throws InterruptedException {
 
 		base.getLogger().info("the user clicks on the Try here button");
-		base.getHpc().ClickTryHere();
+		Actions action = new Actions(driver);
+		action.moveToElement(base.getHpc().tryherebtn).click().perform();
+		//base.getHpc().ClickTryHere();
 
 	}
 
@@ -110,7 +127,9 @@ public class helperClassStepDefi extends BasePage {
 			throws InterruptedException {
 		base.getHpc().enterText(string);
 		base.getLogger().info("the user clicks on the run button");
-		base.getElements().clickOnElement(base.getHpc().runBtn, 0);
+		Actions action = new Actions(driver);
+		action.moveToElement(base.getHpc().runBtn).click().perform();
+		//base.getElements().clickOnElement(base.getHpc().runBtn, 0);
 	}
 
 	@Given("The user is in {string} page")
@@ -127,6 +146,8 @@ public class helperClassStepDefi extends BasePage {
 	@Given("The user is in TryEditor page")
 	public void the_user_is_in_try_editor_page() throws IOException {
 		base.InitializePageObject(driver, sce);
+		//p = base.getProperties();
+		//driver.get(p.getProperty("tryEditor"));
 		driver.get("https://dsportalapp.herokuapp.com/tryEditor");
 	}
 
@@ -166,14 +187,14 @@ public class helperClassStepDefi extends BasePage {
 
 	@When("The user clicks Try Here button on the {string} page")
 	public void the_user_clicks_try_here_button_on_the_page(String string) throws InterruptedException {
-		base.getHpc().ClickTryHere();
-		Thread.sleep(1000);
+		Actions action = new Actions(driver);
+		action.moveToElement(base.getHpc().tryherebtn).click().perform();
 		base.getLogger().info("****User click try here button*****");
 	}
 
-	public void invalidruneditor() {
-
-	}
+//	public void invalidruneditor() {
+//
+//	}
 
 	@Then("Page URL should be {string}")
 	public void page_url_should_be(String string) {
@@ -187,7 +208,7 @@ public class helperClassStepDefi extends BasePage {
 		base.InitializePageObject(driver, sce);
 		driver.get(urlToRedirect);
 		Assert.assertEquals(driver.getCurrentUrl(), urlToRedirect);
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		base.getLogger().info("****User redirected to desire option*****");
 	}
 
@@ -215,14 +236,16 @@ public class helperClassStepDefi extends BasePage {
 	public void user_scroll_down_the_page() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		base.getLogger().info("****User can scroll down the page*****");
 	}
 
 	@Then("the user navigates to the {string}")
 	public void the_user_navigates_to_the(String string) throws IOException {
-		base.InitializePageObject(driver, sce);
-		driver.get("https://dsportalapp.herokuapp.com/home");
+		//base.InitializePageObject(driver, sce);
+		p = base.getProperties();
+		driver.get(p.getProperty("appurlHome"));
+		//driver.get("https://dsportalapp.herokuapp.com/home");
 		base.getLogger().info("****User navigates to home page*****");
 	}
 }
