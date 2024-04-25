@@ -13,7 +13,7 @@ Feature: Reusable Feature
   	Given The user is in "array" page
     When User see "Topics Covered" options
     Then The user clicks on Arrays in Python page
-    Then User scroll down the page
+    #Then User scroll down the page
     When The user clicks Try Here button on the "arrays in python" page
     Then The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button

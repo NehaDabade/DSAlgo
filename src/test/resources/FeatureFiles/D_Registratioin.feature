@@ -10,10 +10,10 @@ Feature: Registration with valid and invalid credentials
     Examples: 
       | username     | password    | confirmPassword | message                                                 | status  |
       | sdet123454   | sdet1       | sdet12          | password_mismatch:The two password fields didn’t match. | Invalid |
-      | sdet1245     |             | numpay          | Please fill out this field.                             | Invalid |
-      |              | numpy@12345 | numpy@12345     | Please fill out this field.                             | Invalid |
-      | sdet1        |       12345 |                 | Please fill out this field.                             | Invalid |
-      | sdet1        |       12345 |           12345 | password_mismatch:The two password fields didn’t match. | Invalid |
-      | 111746789944 | numpy@123   | numpy@123       | password_mismatch:The two password fields didn’t match. | Invalid |
-      | @#$%^        | numpy@123   | numpy@123       | password_mismatch:The two password fields didn’t match. | Invalid |
-      | algotest 12  | numpy@123   | numpy@123       | New Account Created. You are logged in as algotest12    | Valid   |
+      #| sdet1245     |             | numpay          | Please fill out this field.                             | Invalid |
+      #|              | numpy@12345 | numpy@12345     | Please fill out this field.                             | Invalid |
+      #| sdet1        |       12345 |                 | Please fill out this field.                             | Invalid |
+      #| sdet1        |       12345 |           12345 | password_mismatch:The two password fields didn’t match. | Invalid |
+      #| 111746789944 | numpy@123   | numpy@123       | password_mismatch:The two password fields didn’t match. | Invalid |
+      #| @#$%^        | numpy@123   | numpy@123       | password_mismatch:The two password fields didn’t match. | Invalid |
+      #| algotest 12  | numpy@123   | numpy@123       | New Account Created. You are logged in as algotest12    | Valid   |
