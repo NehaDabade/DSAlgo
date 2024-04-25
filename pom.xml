@@ -177,9 +177,31 @@
 						<parallel>methods</parallel>
 						<useUnlimitedThreads>true</useUnlimitedThreads>
 						<!-- put your configurations here -->
+						<includes>
+                                <include>**/Runner.java</include>
+                            </includes>
+                            
 					</configuration>
+					
 				</plugin>
-
+<!--<plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.22.2</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <includes>
+                                <include>**/Runner.java</include>
+                            </includes>
+                            <argLine>Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -Duser.timezone=Europe/London</argLine>
+                        </configuration>
+                    </plugin>-->
 			</plugins>
 
 		</pluginManagement>
