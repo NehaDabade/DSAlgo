@@ -148,6 +148,7 @@ public class TreePageStep extends BasePage {
 																					// slash
 			String act_url = driver.getCurrentUrl();
 			Assert.assertEquals(url, act_url);
+			System.out.println("Tree Action class");
 	  }
 	  
 	 
