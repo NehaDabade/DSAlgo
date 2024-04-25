@@ -20,8 +20,6 @@ public class GetStartStep extends BasePage {
 	Scenario sce;
 	private final BasePage base;
 	Properties p;
-	//private final WebDriver driver;
-	//VerificationPage verify;
 
 	public GetStartStep(BasePage base) {
 		this.driver = Hooks.getDriver();

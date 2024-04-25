@@ -24,7 +24,6 @@ public class ArrayPracticePageSteps  extends BasePage {
 		base.getLogger().info("User go on Search the array link");
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getArrayPracticePageObject().searchTheArray).click().perform();
-		//base.getElements().clickOnElement(base.getArrayPracticePageObject().searchTheArray, 5);
 	}
 	
 	@When("User go on Max Consecutive Ones link")
@@ -32,7 +31,6 @@ public class ArrayPracticePageSteps  extends BasePage {
 		base.getLogger().info("User go on Max Consecutive Ones link");
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getArrayPracticePageObject().maxConsecutiveOnes).click().perform();
-		//base.getElements().clickOnElement(base.getArrayPracticePageObject().maxConsecutiveOnes, 5);
 	}
 	
 	@When("User go on Find Numbers with Even Number of Digits link")
@@ -40,7 +38,6 @@ public class ArrayPracticePageSteps  extends BasePage {
 		base.getLogger().info("User go on Find Numbers with Even Number of Digits link");
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getArrayPracticePageObject().findNumbersWithEvenNumberOfDigits).click().perform();
-		//base.getElements().clickOnElement(base.getArrayPracticePageObject().findNumbersWithEvenNumberOfDigits, 5);
 	}
 	
 	@When("User go on Squares of a Sorted Array link")
@@ -48,6 +45,5 @@ public class ArrayPracticePageSteps  extends BasePage {
 		base.getLogger().info("User go on Squares of a Sorted Array link");
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getArrayPracticePageObject().squaresOfASortedArray).click().perform();
-		//base.getElements().clickOnElement(base.getArrayPracticePageObject().squaresOfASortedArray, 5);
 	}
 }

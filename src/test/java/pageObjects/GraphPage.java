@@ -12,7 +12,6 @@ public class GraphPage extends BasePage {
 		public GraphPage(WebDriver driver) {
 			this.driver =driver;
 			PageFactory.initElements(driver,this);
-			
 		}
 		
 		@FindBy(xpath="//h5[contains(text(),'Graph')]/..//a")

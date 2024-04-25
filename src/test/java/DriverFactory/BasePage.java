@@ -31,7 +31,6 @@ import pageObjects.StackPage;
 import pageObjects.Tree;
 import pageObjects.helperClass;
 import pageObjects.verifyUtil;
-import utilities.ElementsUtils;
 
 public class BasePage {
 
@@ -40,7 +39,6 @@ public class BasePage {
 	public Logger logger;
 
 	public helperClass hpc;
-	public ElementsUtils elements;
 	public SignIn loginObj;
 	public StackPage stackObj;
 	public DsIntroduction DsintroObj;
@@ -120,9 +118,7 @@ public class BasePage {
 		return hpc;
 	}
 
-	public ElementsUtils getElements() {
-		return elements;
-	}
+
 
 	public SignIn getLoginObj() {
 		return loginObj;
@@ -132,7 +128,7 @@ public class BasePage {
 		loginObj = new SignIn(driver);
 		stackObj = new StackPage(driver);
 		hpc = new helperClass(driver);
-		elements = new ElementsUtils(driver);
+		//elements = new ElementsUtils(driver);
 		DsintroObj = new DsIntroduction(driver);
 		registrationObj = new DSRegistration(driver);
 		verifyObj = new verifyUtil(driver);

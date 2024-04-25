@@ -8,15 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import DriverFactory.BasePage;
-import utilities.ElementsUtils;
 
 public class verifyUtil extends BasePage {
-	private ElementsUtils elements;
 
 	public verifyUtil(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		elements = new ElementsUtils(driver);
 	}
 
 	@FindBy(xpath = "//div[@role='alert']")
@@ -44,7 +41,6 @@ public class verifyUtil extends BasePage {
 	public void popup() {
 		WebElement activeElement = driver.switchTo().activeElement();
 		messageStr = activeElement.getAttribute("validationMessage");
-		System.out.println("Actual message appeared on screen: " + messageStr);
 	}
 
 	public boolean isLoginPageExists(String expMsg) {
@@ -79,9 +75,9 @@ public class verifyUtil extends BasePage {
 				return alertMsg;
 			} else {
 				output = runOutPut.getText();
-				
+
 				if (null != output && !output.equalsIgnoreCase("") && expMsg.contains(output.trim())) {
-					
+
 					return (true);
 				}
 
@@ -96,22 +92,18 @@ public class verifyUtil extends BasePage {
 	public boolean isAlertPresent() {
 
 		boolean presentFlag = false;
-		
 
-		
-		  try {
-		  
-		 
-		  driver.switchTo().alert().accept(); // Alert present; set
-		  presentFlag = true; // if present consume the alert the flag 
-		  //alert.accept();
-		  
-		  } catch (NoAlertPresentException ex) { // Alert not present
-		        // ex.printStackTrace();
-			      presentFlag = false;
-		  
-		  }
-		 
+		try {
+
+			driver.switchTo().alert().accept(); // Alert present; set
+			presentFlag = true; // if present consume the alert the flag
+
+		} catch (NoAlertPresentException ex) { // Alert not present
+			// ex.printStackTrace();
+			presentFlag = false;
+
+		}
+
 		return presentFlag;
 
 	}

@@ -25,7 +25,6 @@ public class helperClass extends BasePage {
 	public WebElement tryherebtn;
 
 	@FindBy(xpath = "//form[@id='answer_form']/div/div/div/textarea")
-	// @FindBy(xpath = "//textarea[@autocorrect='off']")
 	public WebElement textArea;
 
 	@FindBy(xpath = "//button[normalize-space()='Run']")
@@ -56,7 +55,6 @@ public class helperClass extends BasePage {
 	}
 
 	public boolean urlVerify(String string) {
-		// msgLogin.getText();
 		try {
 			String exp_url = string;
 			String curUrl = driver.getCurrentUrl();
@@ -69,7 +67,7 @@ public class helperClass extends BasePage {
 		}
 
 	}
-	
+
 	public void clearText() {
 		// Need to clear text which is already present in the textArea.
 		TextIndentation(driver, 1, 45, true);

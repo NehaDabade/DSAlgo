@@ -35,15 +35,12 @@ public class GraphPageStep extends BasePage {
 		p = base.getProperties();
 		base.InitializePageObject(driver, sce);
 		driver.get("https://dsportalapp.herokuapp.com/graph/");
-
 	}
 
 	@When("the user clicks on graph page")
 	public void the_user_is_in_graph_page() throws IOException {
 		base.getLogger().info("On the graph page");
 		action.moveToElement(graphPage.graphLink).click().perform();
-		//base.getElements().clickOnElement(base.getGraphPageObj().graphLink, 0);
-
 	}
 
 	@When("the user clicks on graphRepresentation page")
@@ -51,7 +48,6 @@ public class GraphPageStep extends BasePage {
 		System.out.println("GRAPH REPRESTATION 123");
 		base.getLogger().info("On the GraphRepresentation page");
 		action.moveToElement(graphPage.graphRepLink).click().perform();
-		//base.getElements().clickOnElement(base.getGraphPageObj().graphRepLink, 0);
 	}
 	
 	
