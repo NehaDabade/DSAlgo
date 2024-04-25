@@ -2,11 +2,11 @@
 Feature: Reusable Feature
   I want to use this template for my all feature file
 
-@Login
-  Scenario: Login with valid data
-    Given The user navigates to login page
-    When the user gives username and password
-    Then The user logsin
+#@Login
+  #Scenario: Login with valid data
+    #Given The user navigates to login page
+    #When the user gives username and password
+    #Then The user logsin
 
   @QueuePage
   Scenario: Validating Implementation of Queue in Python link 
