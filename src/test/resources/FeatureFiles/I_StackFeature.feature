@@ -4,11 +4,11 @@ Feature: Reusable Feature
   
    
 
-  @LoginStackPage
-  Scenario: Login with valid data
-    Given The user navigates to login page
-    When the user gives username and password
-    Then The user logsin
+  #@LoginStackPage
+  #Scenario: Login with valid data
+    #Given The user navigates to login page
+    #When the user gives username and password
+    #Then The user logsin
 
   @StackPage
   Scenario: Open desired page

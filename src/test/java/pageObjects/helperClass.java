@@ -19,7 +19,6 @@ public class helperClass extends BasePage {
 	}
 
 	@FindBy(xpath = "//a[normalize-space()='Practice Questions']")
-	@CacheLookup
 	public WebElement practicequestions;
 
 	@FindBy(linkText = "Try here>>>")

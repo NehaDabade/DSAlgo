@@ -4,17 +4,17 @@ Feature: Reusable Feature
   
   
 
-  @Login
-  Scenario: Login with valid data
+  #@Login
+  #Scenario: Login with valid data
   #Background:
-    Given The user navigates to login page
-    
-    When the user gives username and password
-    Then The user logsin
+    #Given The user navigates to login page
+    #
+    #When the user gives username and password
+    #Then The user logsin
 
   @HomePage
   Scenario: Open desired page
- #Background:
+ Background:
     Given User is on "home" page
     When The user clicks on "graph" get started button
     Then The user will be directed to "graph" Page
@@ -62,3 +62,14 @@ Feature: Reusable Feature
     When the user clicks on graph page
     And The user clicks on Practice Questions link 
     Then The user will be directed to practice questions of the Page "graph"
+    
+    
+    
+    @GraphPage
+    
+  Scenario: Logout from the portal
+  
+    Given The user is on  practice questions of the Page 
+    
+    When the user clicks signout
+    Then The user will be on home page

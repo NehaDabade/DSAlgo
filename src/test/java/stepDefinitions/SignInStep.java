@@ -23,7 +23,7 @@ public class SignInStep extends BasePage {
 	private final BasePage base;
 	Scenario sce;
 	public SignIn login;
-	public ElementsUtils element;
+	//public ElementsUtils element;
 	String status;
 	String msg;
 
@@ -31,7 +31,7 @@ public class SignInStep extends BasePage {
 		this.driver = Hooks.getDriver();
 		this.base = base;
 		login = base.getLoginObj();
-		element = base.getElements();
+		//element = base.getElements();
 	}
 
 	List<HashMap<String, String>> datamap; // Data driven

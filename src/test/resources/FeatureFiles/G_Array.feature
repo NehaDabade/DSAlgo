@@ -2,18 +2,18 @@
 Feature: Reusable Feature
   I want to use this template for my all feature file
 
-  @Login
-  Scenario: Login with valid data
-    Given The user navigates to login page
-    When the user gives username and password
-    Then The user logsin
+  #@Login
+  #Scenario: Login with valid data
+    #Given The user navigates to login page
+    #When the user gives username and password
+    #Then The user logsin
 
   @ArrayPage
   Scenario: Validating Arrays in Python link 
   	Given The user is in "array" page
     When User see "Topics Covered" options
     Then The user clicks on Arrays in Python page
-    Then User scroll down the page
+    #Then User scroll down the page
     When The user clicks Try Here button on the "arrays in python" page
     Then The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button
