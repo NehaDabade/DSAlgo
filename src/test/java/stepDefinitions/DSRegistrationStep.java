@@ -56,7 +56,7 @@ public class DSRegistrationStep extends BasePage {
 		base.getLogger().info("Check for error message or popup message...");
 		try {
 			boolean targetpage = base.getVerifyObj().isLoginPageExists(message);
-			if (status.equalsIgnoreCase("valid"))
+			if (status.trim().equalsIgnoreCase("valid"))
 
 			{
 				if (targetpage == true) {
@@ -67,7 +67,7 @@ public class DSRegistrationStep extends BasePage {
 				}
 			}
 
-			if (status.equalsIgnoreCase("Invalid")) {
+			if (status.trim().equalsIgnoreCase("Invalid")) {
 				if (targetpage == true) {
 
 					Assert.assertTrue(true);

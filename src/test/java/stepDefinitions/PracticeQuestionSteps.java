@@ -9,10 +9,6 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
@@ -23,13 +19,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageObjects.VerificationPage;
+import pageObjects.verifyUtil;
 import utilities.DataReader;
 
 public class PracticeQuestionSteps extends BasePage {
 
 	Scenario sce;
-	VerificationPage verify;
+	//VerificationPage verify;
+	verifyUtil verify;
 	Properties p;
 	public BasePage base;
 	Logger logger = LogManager.getLogger();
@@ -99,7 +96,7 @@ public class PracticeQuestionSteps extends BasePage {
 
 		HashMap<String, String> rowData = excelDataPythonCode.get(index);
 
-		verify = new VerificationPage(driver);
+		verify = new verifyUtil(driver);
 		try {
 			boolean targetpage = verify.isRunEditorValid(rowData.get("Result"));
 
