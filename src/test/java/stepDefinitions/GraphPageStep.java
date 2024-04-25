@@ -23,20 +23,14 @@ public class GraphPageStep extends BasePage {
 	public void The_user_is_in_graph_page(String string) throws IOException, InterruptedException {
 		base.getLogger().info("On the graphUrl page");
 		p = base.getProperties();
-
-		// Thread.sleep(4000);
-		// driver.get("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");
-
 		base.InitializePageObject(driver, sce);
 		driver.get("https://dsportalapp.herokuapp.com/graph/");
-		//Thread.sleep(4000);
 
 	}
 
 	@When("the user clicks on graph page")
 	public void the_user_is_in_graph_page() throws IOException {
 		base.getLogger().info("On the graph page");
-		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getGraphPageObj().graphLink, 0);
 
 	}
@@ -45,14 +39,7 @@ public class GraphPageStep extends BasePage {
 	public void the_user_clicks_on_graph_representation_page() throws IOException, InterruptedException {
 		System.out.println("GRAPH REPRESTATION 123");
 		base.getLogger().info("On the GraphRepresentation page");
-		base.InitializePageObject(driver, sce);
 		base.getElements().clickOnElement(base.getGraphPageObj().graphRepLink, 0);
-		//Thread.sleep(2000);
 	}
 
-	@Given("^The user is on the \"([^\"]*)\" page for practice question$")
-    public void the_user_is_on_the_page_for_practice_question(String page) {
-        // Implementation to navigate to the specified page for practice questions
-
-	}
 }

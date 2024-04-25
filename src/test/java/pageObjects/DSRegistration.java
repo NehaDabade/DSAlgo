@@ -22,8 +22,6 @@ WebDriver driver;
     
 	
 	  @FindBy(id = "id_username")
-	  
-	  @CacheLookup 
 	  public static WebElement username;
 	 
 	
@@ -44,20 +42,20 @@ WebDriver driver;
 		}
 	
 	
-	public void setUserName(String uname) {
-
-		//WebElement username = driver.findElement(By.id("id_username"));
-		username.sendKeys(uname);
-	}
-	public void setPwdName(String password) {
-		pwd.sendKeys(password);
-	}
-	public void setConfpwdName(String confpassword) {
-		confpwd.sendKeys(confpassword);
-	}
-
-    public void clickRegisterbtn() {
-    	btnRegister.click();
-    }
+//	public void setUserName(String uname) {
+//
+//		//WebElement username = driver.findElement(By.id("id_username"));
+//		username.sendKeys(uname);
+//	}
+//	public void setPwdName(String password) {
+//		pwd.sendKeys(password);
+//	}
+//	public void setConfpwdName(String confpassword) {
+//		confpwd.sendKeys(confpassword);
+//	}
+//
+//    public void clickRegisterbtn() {
+//    	btnRegister.click();
+//    }
 
 }

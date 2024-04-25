@@ -15,12 +15,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class GetStartStep {
+public class GetStartStep extends BasePage {
 
 	Scenario sce;
 	private final BasePage base;
 	Properties p;
-	private final WebDriver driver;
+	//private final WebDriver driver;
 	//VerificationPage verify;
 
 	public GetStartStep(BasePage base) {

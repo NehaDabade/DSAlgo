@@ -2,6 +2,8 @@ package stepDefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import DriverFactory.BasePage;
@@ -17,22 +19,19 @@ import utilities.ElementsUtils;
 public class DSRegistrationStep extends BasePage{
 	 private final BasePage base;
 		Scenario sce;
-	  
-	     verifyUtil vp;
-	     public ElementsUtils element;
+	     //public ElementsUtils element;
 	     DSRegistration registrationpage;
+	     Actions action;
 	    
 
 		 public DSRegistrationStep(BasePage base) 
 		  { 
 			  this.driver = Hooks.getDriver(); 
 			  this.base = base;
-			  registrationpage = new DSRegistration(driver);
-			  element= base.getElements();
-			  //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			  registrationpage = base.getRegistrationObj();
+			  action =base.getAction();
+			  //element= base.getElements();
 		  }
-			
-		
 
 		// RegistrationPage registrationPage;
 		@Given("The user opens Register Page")
@@ -51,13 +50,18 @@ public class DSRegistrationStep extends BasePage{
 				String confirmpwd1) {
 
 			base.getLogger().info("The user fill in the registration form with given data");
-			base.getElements().typeTextIntoElement(registrationpage.username,username1,0);
-
-			base.getElements().typeTextIntoElement(registrationpage.pwd ,password,0);
-			base.getElements().typeTextIntoElement(registrationpage.confpwd,confirmpwd1,0);
+			
+			//base.getElements().typeTextIntoElement(registrationpage.username,username1,0);
+			//base.getElements().typeTextIntoElement(registrationpage.pwd ,password,0);
+			//base.getElements().typeTextIntoElement(registrationpage.confpwd,confirmpwd1,0);
+			Actions action = new Actions(driver);
+			action.moveToElement(registrationpage.username).click().sendKeys(username1).build().perform();
+			action.moveToElement(registrationpage.pwd).click().sendKeys(password).build().perform();
+			action.moveToElement(registrationpage.confpwd).click().sendKeys(confirmpwd1).build().perform();
 			
 	        base.getLogger().info("Clicked on Registration Button");
-	        base.getElements().clickOnElement(registrationpage.btnRegister,0);
+	        action.moveToElement(registrationpage.btnRegister).click().perform();
+	      // base.getElements().clickOnElement(registrationpage.btnRegister,0);
 
 			
 
@@ -66,9 +70,6 @@ public class DSRegistrationStep extends BasePage{
 		@Then("^User should see an error\\/success message(.*),(.*)$")
 		public void user_should_see_an_error_success_message(String message, String status) {
 			base.getLogger().info("Check for error message or popup message...");
-			
-			//vp= new verifyUtil(driver);
-			
 			try {
 				boolean targetpage = base.getVerifyObj().isLoginPageExists(message);
 				if (status.equalsIgnoreCase("valid"))

@@ -14,7 +14,7 @@ Feature: Reusable Feature
 
   @HomePage
   Scenario: Open desired page
-  Background:
+ #Background:
     Given User is on "home" page
     When The user clicks on "graph" get started button
     Then The user will be directed to "graph" Page
@@ -60,5 +60,5 @@ Feature: Reusable Feature
   Scenario: Validate Practice Questions Page
   	Given The user is in "graph" page
     When the user clicks on graph page
-    Then The user clicks on Practice Questions link 
-    And The user will be directed to practice questions of the Page "graph"
+    And The user clicks on Practice Questions link 
+    Then The user will be directed to practice questions of the Page "graph"

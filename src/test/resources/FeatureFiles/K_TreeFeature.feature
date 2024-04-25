@@ -272,5 +272,5 @@ Feature: Reusable Feature
   Scenario: Validate Practice Questions Page
      Given The user is in "tree" page
     When the user clicks on implementation-of-bst link
-    Then The user clicks on Practice Questions link
-    And The user will be directed to practice questions of the Page "tree"
+    And The user clicks on Practice Questions link
+    Then The user will be directed to practice questions of the Page "tree"

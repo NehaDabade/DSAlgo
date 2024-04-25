@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 import DriverFactory.BasePage;
 import applicationHook.Hooks;
@@ -47,10 +48,8 @@ public class SignInStep extends BasePage {
 	@When("user enter username and password from excel row {string}")
 	public void user_enter_username_and_password_from_excel_row(String rows) {
 		base.getLogger().info("Entering email and password.. ");
-
-		datamap = DataReader.data(System.getProperty("user.dir") + "\\testData\\ExcelData.xlsx", "LoginData"); // Assuming sheet name
-																									// is the first
-																									// sheet
+		datamap = DataReader.data(System.getProperty("user.dir") + "\\testData\\ExcelData.xlsx", "LoginData"); 
+		// Assuming sheet name is the first sheet
 		base.getLogger().info("The user fills in the Login form with given data");
 		int index = Integer.parseInt(rows) - 1;
 
@@ -61,10 +60,15 @@ public class SignInStep extends BasePage {
 			String pwd = rowData.getOrDefault("password", "");
 			status = rowData.getOrDefault("status", "");
 			msg = rowData.getOrDefault("message", "");
+			
+			Actions action = new Actions(driver);
+			action.moveToElement(login.loginusername).click().sendKeys(uname).build().perform();
+			action.moveToElement(login.loginpwd).click().sendKeys(pwd).build().perform();
+			action.moveToElement(login.btnLogin).click().perform();
 
-			base.getElements().typeTextIntoElement(login.loginusername, uname, 0);
-			base.getElements().typeTextIntoElement(login.loginpwd, pwd, 0);
-			base.getElements().clickOnElement(base.getLoginObj().btnLogin, 0);
+			//base.getElements().typeTextIntoElement(login.loginusername, uname, 0);
+			//base.getElements().typeTextIntoElement(login.loginpwd, pwd, 0);
+			//base.getElements().clickOnElement(base.getLoginObj().btnLogin, 0);
 
 			base.getLogger().info("Clicked on login button...");
 		} else {

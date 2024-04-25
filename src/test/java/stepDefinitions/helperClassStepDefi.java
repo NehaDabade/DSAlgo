@@ -84,7 +84,7 @@ public class helperClassStepDefi extends BasePage {
 		base.getHpc().Practicequestions();
 	}
 
-	@Then("The user will be directed to practice questions of the Page {string}")
+	@Then("The user will be directed to practice questions of the Page {string}")
 	public void the_user_will_be_directed_to_practice_questions_of_the_page(String string) throws IOException {
 		base.getLogger().info("the_user_will_be_directed_to_practice_questions_of_page");
 		String baseUrl = "https://dsportalapp.herokuapp.com/";
