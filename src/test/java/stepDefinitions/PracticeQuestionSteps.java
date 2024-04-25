@@ -52,17 +52,15 @@ public class PracticeQuestionSteps extends BasePage {
 	}
 
 	
-	@When("The user clicks on to the Practice Questions link")
-	public void the_user_clicks_on_to_the_practice_questions_link() throws InterruptedException {
-		Thread.sleep(1000);
-		base.getHpc().Practicequestions();
-		logger.info("****User clicks on practice question*****");
-	}
+//	@When("The user clicks on to the Practice Questions link")
+//	public void the_user_clicks_on_to_the_practice_questions_link() throws InterruptedException {
+//		base.getHpc().Practicequestions();
+//		logger.info("****User clicks on practice question*****");
+//	}
 	
 	
 	@Then("The user clear code text area")
 	public void the_user_clear_code_text_area() throws IOException {
-		base.InitializePageObject(driver, sce);
 		base.getHpc().clearText();
 		logger.info("****User can clear the code*****");
 	}

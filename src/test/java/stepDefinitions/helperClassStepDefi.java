@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import DriverFactory.BasePage;
@@ -22,12 +23,14 @@ public class helperClassStepDefi extends BasePage {
 	Scenario sce;
 	private final BasePage base;
 	Properties p;
-	private final WebDriver driver;
+	//private final WebDriver driver;
 	verifyUtil verify;
+	Actions action;
 
 	public helperClassStepDefi(BasePage base) {
 		this.driver = Hooks.getDriver();
 		this.base = base;
+		action =base.getAction();
 	}
 
 	@Given("The user navigates to login page")
@@ -42,7 +45,7 @@ public class helperClassStepDefi extends BasePage {
 	@When("the user gives username and password")
 	public void the_user_gives_username_and_password() throws IOException {
 		base.getLogger().info("Entering email and password.. ");
-		p = base.getProperties();
+		//action.moveToElement(registrationpage.confpwd).click().sendKeys(confirmpwd1).build().perform();
 		base.getLoginObj().sendUserName(p.getProperty("username").trim());
 		base.getLoginObj().sendPwdName(p.getProperty("password").trim());
 	}

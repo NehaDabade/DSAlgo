@@ -17,6 +17,7 @@ public class TreePageStep extends BasePage {
 	public TreePageStep(BasePage base) {
 		this.driver = Hooks.getDriver();
 		this.base = base;
+		//treePage=base.getTreePageObj()
 	}
 	
 	@When("the user clicks on overview-of-trees link")
