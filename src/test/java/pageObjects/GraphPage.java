@@ -24,5 +24,8 @@ public class GraphPage extends BasePage {
 		@FindBy(linkText="Graph")
 		public WebElement graphLink;
 		
+		@FindBy(linkText="Sign out")
+		public WebElement signOutlink;
+		
 
 }
