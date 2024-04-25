@@ -41,7 +41,7 @@ public class TreePageStep extends BasePage {
 		//base.InitializePageObject(driver, sce);
 		action.moveToElement(treePage.terminologies).click().perform();
 		//base.getElements().clickOnElement(base.getTreePageObj().terminologies,0);
-		System.out.println("WORK PLZ");
+		
 	}
 	
 	@When("the user clicks on types-of-trees link")
@@ -149,8 +149,7 @@ public class TreePageStep extends BasePage {
 																					// slash
 			String act_url = driver.getCurrentUrl();
 			Assert.assertEquals(url, act_url);
-			System.out.println("Tree Action class");
-			System.out.println("One more Tree Action class");
+			
 	  }
 	  
 	 
