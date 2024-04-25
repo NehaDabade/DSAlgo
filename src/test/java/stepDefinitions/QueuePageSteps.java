@@ -42,12 +42,14 @@ public class QueuePageSteps extends BasePage {
 	public void the_user_clicks_on_implementation_using_array_page() throws IOException {
 		// base.getLogger().info("On the implementation page");
 		action.moveToElement(queuePage.implementationusingarray).click().perform();
+		System.out.println("TEST QUEUE");
 		//base.getElements().clickOnElement(base.getQueuePage().implementationusingarray, 5);
 	}
 	@When("The user clicks on Queue Operations page")
 	public void the_user_clicks_on_queue_operations_page() throws IOException {
 		// base.getLogger().info("On the implementation page");
 		action.moveToElement(queuePage.queueoperations).click().perform();
+		System.out.println("TEST QUEUE");
 		//base.getElements().clickOnElement(base.getQueuePage().queueoperations, 5);
 	}
 }
