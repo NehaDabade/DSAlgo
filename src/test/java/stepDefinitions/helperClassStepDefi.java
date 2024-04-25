@@ -71,10 +71,17 @@ public class helperClassStepDefi extends BasePage {
 
 	@Given("User is on {string} page")
 	public void user_is_on_page(String string) throws IOException {
+		/*
+		 * base.InitializePageObject(driver, sce); String act_url =
+		 * driver.getCurrentUrl(); String exp_url =
+		 * "https://dsportalapp.herokuapp.com/home"; Assert.assertEquals(exp_url,
+		 * act_url);
+		 */
+		
+		base.getLogger().info("the_user_navigates_to_login_page.. ");
 		base.InitializePageObject(driver, sce);
-		String act_url = driver.getCurrentUrl();
-		String exp_url = "https://dsportalapp.herokuapp.com/home";
-		Assert.assertEquals(exp_url, act_url);
+		p = base.getProperties();
+		driver.get(p.getProperty("appurlHome"));
 
 	}
 

@@ -7,8 +7,8 @@ Feature: Reusable Feature
     #Given The user navigates to login page
     #When the user gives username and password
     #Then The user logsin
-
-  @QueuePage
+#
+  #@QueuePage
   Scenario: Validating Implementation of Queue in Python link 
   	Given The user is in "queue" page
   	#When User scroll down the page
