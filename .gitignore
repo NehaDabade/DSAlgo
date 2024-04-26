@@ -3,10 +3,8 @@
 /Logs/
 /allure-results/
 /json_output/
-/junit_xml/
 /reports/
 /test-output-thread/
 /test-output/
-/testData/
-
+/ExtentReports/
 
