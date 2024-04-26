@@ -7,15 +7,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import DriverFactory.BasePage;
-import utilities.ElementsUtils;
 
 public class SignIn extends BasePage{
-private ElementsUtils elements;
 	
 	public SignIn(WebDriver driver) {
 		this.driver =driver;
 		PageFactory.initElements(driver,this);
-		elements  = new ElementsUtils(driver);
 	}
 	
 	@FindBy(id = "id_username")
@@ -27,8 +24,6 @@ private ElementsUtils elements;
 	
 	@FindBy(linkText = "Sign out") 
 	public static WebElement lnkSignout;
-	
-	
 	
 	@FindBy(xpath="//input[@value='Login']")
 	public static WebElement btnLogin;
@@ -49,11 +44,5 @@ private ElementsUtils elements;
 	  { lnkSignout.click(); 
 	  }
 	  
-		/*
-		 * public void doLogin() { elements.clickOnElement(btnLogin, 0);
-		 * 
-		 * }
-		 */
-	
 
 }

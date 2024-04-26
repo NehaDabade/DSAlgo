@@ -13,7 +13,6 @@ public class StackPage extends BasePage{
 		PageFactory.initElements(driver,this);
 		
 	}
-	
 
 @FindBy(xpath="//a[normalize-space()='Operations in Stack']")
 public WebElement OperInStackLink;

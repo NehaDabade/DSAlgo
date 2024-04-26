@@ -1,9 +1,6 @@
 @tag
 Feature: Reusable Feature
   I want to use this template for my all feature file
-  
-  
-
   #@Login
   #Scenario: Login with valid data
   #Background:

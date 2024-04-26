@@ -9,10 +9,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import DriverFactory.BasePage;
@@ -22,27 +19,26 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageObjects.VerificationPage;
+import pageObjects.verifyUtil;
 import utilities.DataReader;
 
 public class PracticeQuestionSteps extends BasePage {
 
 	Scenario sce;
-	VerificationPage verify;
+	//VerificationPage verify;
+	verifyUtil verify;
 	Properties p;
 	public BasePage base;
-	public WebDriver driver;
 	Logger logger = LogManager.getLogger();
 	List<HashMap<String, String>> excelDataPythonCode;
 
 	public PracticeQuestionSteps(BasePage base) {
 		this.base = base;
 		this.driver = Hooks.getDriver();
-		excelDataPythonCode = DataReader.data(System.getProperty("user.dir") + "\\testData\\ExcelData.xlsx", "Pythoncode");
+		excelDataPythonCode = DataReader.data(System.getProperty("user.dir") + "\\testData\\ExcelData.xlsx",
+				"Pythoncode");
 		logger.info("****User read data from excel*****");
 	}
-	
-
 
 	@Given("The user is on the  {string} page")
 	public void the_user_is_on_the_page(String string) throws IOException {
@@ -51,28 +47,28 @@ public class PracticeQuestionSteps extends BasePage {
 		logger.info("****User is on desired page*****");
 	}
 
-	
 	@When("The user clicks on to the Practice Questions link")
 	public void the_user_clicks_on_to_the_practice_questions_link() throws InterruptedException {
-		base.getHpc().Practicequestions();
+		Actions action = new Actions(driver);
+		action.moveToElement(base.getHpc().practicequestions).click().perform();
 		logger.info("****User clicks on practice question*****");
 	}
-	
-	
+
 	@Then("The user clear code text area")
 	public void the_user_clear_code_text_area() throws IOException {
 		base.getHpc().clearText();
 		logger.info("****User can clear the code*****");
 	}
-	 	
+
 	@Then("The user will be directed to practice questions of {string} Page")
 	public void the_user_will_be_directed_to_practice_questions_of_page(String string) throws IOException {
-		// make this common step which dynamically generates URL, can be used in all StepDefs.
+		// make this common step which dynamically generates URL, can be used in all
+		// StepDefs.
 		assertEquals("https://dsportalapp.herokuapp.com/" + string + "/practice", driver.getCurrentUrl(),
 				"TEST PASS: EXPECTED PAGE OPEN");
 		logger.info("****User verify the practice question page*****");
 	}
-	
+
 	@Then("The user will be redirected to tryEditor page with a Run button to test")
 	public void the_user_will_be_redirected_to_try_editor_page_with_a_run_button_to_test() throws InterruptedException {
 		base.getLogger().info("check for tryeditor page....");
@@ -82,7 +78,8 @@ public class PracticeQuestionSteps extends BasePage {
 	}
 
 	@And("The user enters {int} in tryEditor page and user clicks Run button")
-	public void the_user_enters_in_try_editor_and_user_clicks_run_button(Integer index) throws InterruptedException, IOException {
+	public void the_user_enters_in_try_editor_and_user_clicks_run_button(Integer index)
+			throws InterruptedException, IOException {
 		HashMap<String, String> rowData = excelDataPythonCode.get(index);
 		// Read data from excel
 		String formattedText = rowData.get("pCode");
@@ -99,7 +96,7 @@ public class PracticeQuestionSteps extends BasePage {
 
 		HashMap<String, String> rowData = excelDataPythonCode.get(index);
 
-		verify = new VerificationPage(driver);
+		verify = new verifyUtil(driver);
 		try {
 			boolean targetpage = verify.isRunEditorValid(rowData.get("Result"));
 
@@ -124,5 +121,5 @@ public class PracticeQuestionSteps extends BasePage {
 		}
 		logger.info("****User can see expected result*****");
 	}
-	
+
 }

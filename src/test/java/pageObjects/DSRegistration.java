@@ -17,9 +17,6 @@ WebDriver driver;
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-
-   
-    
 	
 	  @FindBy(id = "id_username")
 	  public static WebElement username;
@@ -41,21 +38,4 @@ WebDriver driver;
 		 lnkRegister.click();
 		}
 	
-	
-//	public void setUserName(String uname) {
-//
-//		//WebElement username = driver.findElement(By.id("id_username"));
-//		username.sendKeys(uname);
-//	}
-//	public void setPwdName(String password) {
-//		pwd.sendKeys(password);
-//	}
-//	public void setConfpwdName(String confpassword) {
-//		confpwd.sendKeys(confpassword);
-//	}
-//
-//    public void clickRegisterbtn() {
-//    	btnRegister.click();
-//    }
-
 }

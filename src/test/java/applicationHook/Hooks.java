@@ -2,14 +2,19 @@ package applicationHook;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
 
+import org.junit.rules.TestWatcher;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
 import DriverFactory.BasePage;
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class Hooks {
+public class Hooks extends TestWatcher {
 
 	private static WebDriver driver;
 	private BasePage base;
@@ -37,4 +42,24 @@ public class Hooks {
 	public static WebDriver getDriver() {
 		return driver;
 	}
+	
+
+	  public void tearDown(Scenario scenario) {
+	  
+	  // this is for cucumber junit report 
+		  if(scenario.isFailed()) {
+	  
+	   TakesScreenshot ts=(TakesScreenshot) base.getDriver(); 
+	   byte[] screenshot=ts.getScreenshotAs(OutputType.BYTES);
+	  scenario.attach(screenshot,"image/png",scenario.getName());
+		  }
+	  }
+	  
+//	  @After
+//	 public void browserQuit() {
+//		       driver.close();
+//	  
+//	  }
 }
+		  
+
