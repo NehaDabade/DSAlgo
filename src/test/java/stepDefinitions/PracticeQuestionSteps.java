@@ -25,7 +25,7 @@ import utilities.DataReader;
 public class PracticeQuestionSteps extends BasePage {
 
 	Scenario sce;
-	//VerificationPage verify;
+	// VerificationPage verify;
 	verifyUtil verify;
 	Properties p;
 	public BasePage base;
@@ -89,6 +89,14 @@ public class PracticeQuestionSteps extends BasePage {
 		base.getHpc().ClickRun();
 		logger.info("****User clicks run button*****");
 	}
+	
+	@Given("User clicks Submit button")
+	public void user_clicks_submit_button() {
+		base.InitializePageObject(driver, sce);
+		base.getHpc().ClickSubmit();
+		logger.info("****User clicks Submit button*****");
+	}
+	
 
 	@Then("^The user will be presented with the run output (.*) and status is (.*)$")
 	public void the_user_will_be_presented_with_the_run_output(Integer index, String status) throws IOException {

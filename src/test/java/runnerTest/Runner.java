@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = { ".\\src\\test\\resources\\FeatureFiles\\" }, 
+		features = { ".\\src\\test\\resources\\FeatureFiles\\TC07-Array.feature" }, 
 		glue = { "stepDefinitions", "applicationHook" },
 		plugin = { "pretty", "html:reports/myreport.html", "rerun:target/rerun.txt",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",

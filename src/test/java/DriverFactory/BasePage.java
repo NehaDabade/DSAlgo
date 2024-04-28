@@ -124,7 +124,7 @@ public class BasePage {
 		return loginObj;
 	}
 
-	public void InitializePageObject(WebDriver driver, Scenario scenario) throws IOException {
+	public void InitializePageObject(WebDriver driver, Scenario scenario) {
 		loginObj = new SignIn(driver);
 		stackObj = new StackPage(driver);
 		hpc = new helperClass(driver);
