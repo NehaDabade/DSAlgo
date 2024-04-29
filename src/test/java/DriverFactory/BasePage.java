@@ -52,8 +52,7 @@ public class BasePage {
 	private QueuePage queuepage;
 	public DataStructureIntro dsiPageObj;
 	public Actions action;
-	
-	
+
 	public Actions getAction() {
 		return action;
 	}
@@ -69,15 +68,15 @@ public class BasePage {
 	public QueuePage getQueuePage() {
 		return queuepage;
 	}
-	
+
 	public LinkedListPage getLinkedListPage() {
 		return linkedlistPage;
 	}
-	
+
 	public ArrayPracticePage getArrayPracticePageObject() {
 		return arrayPracticePage;
 	}
-	
+
 	public ArrayPage getArrayPageObject() {
 		return arrayPage;
 	}
@@ -118,8 +117,6 @@ public class BasePage {
 		return hpc;
 	}
 
-
-
 	public SignIn getLoginObj() {
 		return loginObj;
 	}
@@ -128,7 +125,7 @@ public class BasePage {
 		loginObj = new SignIn(driver);
 		stackObj = new StackPage(driver);
 		hpc = new helperClass(driver);
-		//elements = new ElementsUtils(driver);
+		// elements = new ElementsUtils(driver);
 		DsintroObj = new DsIntroduction(driver);
 		registrationObj = new DSRegistration(driver);
 		verifyObj = new verifyUtil(driver);
@@ -182,7 +179,7 @@ public class BasePage {
 			}
 		}
 		this.driver.manage().deleteAllCookies();
-		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		this.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 		return driver;
 
