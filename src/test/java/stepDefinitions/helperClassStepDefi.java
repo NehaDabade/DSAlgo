@@ -1,13 +1,17 @@
 package stepDefinitions;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import DriverFactory.BasePage;
@@ -111,7 +115,9 @@ public class helperClassStepDefi extends BasePage {
 
 		base.getLogger().info("the user clicks on the Try here button");
 		Actions action = new Actions(driver);
-		action.moveToElement(base.getHpc().tryherebtn).click().perform();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(base.getHpc().tryherebtn));
+		action.moveToElement(webElement).click().perform();
 
 	}
 
@@ -206,7 +212,7 @@ public class helperClassStepDefi extends BasePage {
 		} else {
 			Assert.assertFalse(false);
 		}
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		base.getLogger().info("****User see Topic Covered option*****");
 	}
 
