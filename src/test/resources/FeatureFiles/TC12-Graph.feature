@@ -62,7 +62,7 @@ Feature: Reusable Feature
     
     
     
-    @GraphPage
+    @GraphPageLogout
     
   Scenario: Logout from the portal
   
