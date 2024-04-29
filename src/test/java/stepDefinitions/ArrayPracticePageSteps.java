@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import DriverFactory.BasePage;
 import applicationHook.Hooks;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 public class ArrayPracticePageSteps  extends BasePage {
@@ -46,4 +47,5 @@ public class ArrayPracticePageSteps  extends BasePage {
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getArrayPracticePageObject().squaresOfASortedArray).click().perform();
 	}
+	
 }

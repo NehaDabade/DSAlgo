@@ -87,14 +87,6 @@
 
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>7.16.1</version>
-
-		</dependency>
-
 		<!--
 		https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
 		<dependency>
@@ -165,28 +157,43 @@
 
 				<!--
 				https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+				
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.2.5</version>
 					<configuration>
+						<!-- <suiteXmlFiles>
+							<suiteXmlFile>testng.xml</suiteXmlFile>
+						</suiteXmlFiles>-->
 						<parallel>methods</parallel>
 						<useUnlimitedThreads>true</useUnlimitedThreads>
-					</configuration>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.2.5</version>
-					<configuration>
-						<suiteXmlFiles>
-							<suiteXmlFile>testng.xml</suiteXmlFile>
-						</suiteXmlFiles>
 						<!-- put your configurations here -->
+						<includes>
+                                <include>**/Runner.java</include>
+                            </includes>
+                            
 					</configuration>
+					
 				</plugin>
-
+<!--<plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.22.2</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <includes>
+                                <include>**/Runner.java</include>
+                            </includes>
+                            <argLine>Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -Duser.timezone=Europe/London</argLine>
+                        </configuration>
+                    </plugin>-->
 			</plugins>
 
 		</pluginManagement>

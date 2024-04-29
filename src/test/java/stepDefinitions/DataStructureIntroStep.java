@@ -16,8 +16,7 @@ import pageObjects.DataStructureIntro;
 
 public class DataStructureIntroStep extends BasePage {
 	private final BasePage base;
-	//private final WebDriver base;
-	Scenario sce;
+    Scenario sce;
 	Properties p;
 	DataStructureIntro dataStructureIntro;
 	Actions action;

@@ -74,10 +74,17 @@ Feature: Reusable Feature
     And The user clear code text area
     And The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
-    Examples: 
+      Examples: 
       | code  | status  |
       | 2	  	| valid   |
-		
+      
+    Scenario: Validate Practice Questions Search the array Page Submit button
+     Given  User clicks Submit button
+     Then The user will be presented with the run output <code> and status is <status>
+     Examples: 
+      | code  | status  |
+      | 3	  	| valid |
+      
     Scenario: Validate Practice Questions Max Consecutive Ones Page
     Given User is redirected to "https://dsportalapp.herokuapp.com/array/practice"
     Then The user will be directed to practice questions of "array" Page
@@ -87,7 +94,14 @@ Feature: Reusable Feature
     Then The user will be presented with the run output <code> and status is <status>
     Examples: 
       | code  | status  |
-      | 4 		 | valid   |
+      | 4 		| valid   |
+      
+     Scenario: Validate Practice Questions Max Consecutive Ones Page Submit button
+     Given  User clicks Submit button
+     Then The user will be presented with the run output <code> and status is <status>
+     Examples: 
+      | code  | status  |
+      | 5  	| valid |
 		
 		Scenario: Validate Practice Questions Find Numbers with Even Number of Digit Page
 		Given User is redirected to "https://dsportalapp.herokuapp.com/array/practice"
@@ -100,6 +114,13 @@ Feature: Reusable Feature
       | code  | status  |
       | 6			| valid   |
       
+    Scenario: Validate Practice Questions Find Numbers with Even Number of Digit Page Submit button
+     Given User clicks Submit button
+     Then The user will be presented with the run output <code> and status is <status>
+     Examples: 
+      | code  | status  |
+      | 7  	  | valid |  
+      
     Scenario: Validate Practice Questions Squares of a Sorted Array Page
     Given User is redirected to "https://dsportalapp.herokuapp.com/array/practice"
 		Then The user will be directed to practice questions of "array" Page
@@ -107,8 +128,14 @@ Feature: Reusable Feature
     And The user clear code text area
     And The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
-    Then the user navigates to the "https://dsportalapp.herokuapp.com/home"
     Examples: 
       | code  | status  |
       | 8			| valid   |
-    
+
+    Scenario: Validate Practice Questions Squares of a Sorted Array Page Submit button
+     Given User clicks Submit button
+     Then The user will be presented with the run output <code> and status is <status>
+     Then the user navigates to the "https://dsportalapp.herokuapp.com/home"
+     Examples: 
+      | code  | status  |
+      | 9 	  | valid |  

@@ -29,6 +29,9 @@ public class helperClass extends BasePage {
 
 	@FindBy(xpath = "//button[normalize-space()='Run']")
 	public WebElement runBtn;
+	
+	@FindBy (xpath = "//input[@value='Submit']")
+	public WebElement submitbutton;
 
 	@FindBy(linkText = "Sign out")
 	public WebElement lnkSignout;
@@ -41,6 +44,9 @@ public class helperClass extends BasePage {
 		runBtn.click();
 	}
 
+	public void ClickSubmit() {
+		submitbutton.click();
+	}
 	public void Practicequestions() {
 		practicequestions.click();
 	}
