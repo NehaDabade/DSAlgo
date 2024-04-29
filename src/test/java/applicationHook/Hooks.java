@@ -18,7 +18,7 @@ public class Hooks extends TestWatcher {
 
 	private static WebDriver driver;
 	private BasePage base;
-	//private Properties p;
+	// private Properties p;
 	private Scenario sce;
 
 	public Hooks(BasePage base) throws IOException {
@@ -31,7 +31,7 @@ public class Hooks extends TestWatcher {
 
 		if (driver == null) {
 			driver = base.initilizeBrowser();
-			//p = base.getProperties();
+			// p = base.getProperties();
 			// driver.get(p.getProperty("appURLlogin"));
 			base.InitializePageObject(driver, sce);
 			driver.manage().window().maximize();
@@ -42,22 +42,22 @@ public class Hooks extends TestWatcher {
 	public static WebDriver getDriver() {
 		return driver;
 	}
-	
 
-	  public void tearDown(Scenario scenario) {
-	  
-	  // this is for cucumber junit report 
-		  if(scenario.isFailed()) {
-	  
-	   TakesScreenshot ts=(TakesScreenshot) base.getDriver(); 
-	   byte[] screenshot=ts.getScreenshotAs(OutputType.BYTES);
-	  scenario.attach(screenshot,"image/png",scenario.getName());
-		  }
-	  }
-	  @After("@GraphPageLogout")
-		public void quit() {
-			driver.quit();
+	public void tearDown(Scenario scenario) {
+
+		// this is for cucumber junit report
+		if (scenario.isFailed()) {
+
+			TakesScreenshot ts = (TakesScreenshot) base.getDriver();
+			byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+			scenario.attach(screenshot, "image/png", scenario.getName());
 		}
-}
-		  
+	}
+	@After("@GraphPageLogout")
+	public void quit() {
+		if(driver!= null) {
+		driver.quit();
+		}
+	}
 
+}

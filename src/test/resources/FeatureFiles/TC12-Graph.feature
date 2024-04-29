@@ -35,7 +35,7 @@ Feature: Reusable Feature
       | println 'Welcome' | Invalid |
       | print 'Welcome'   | valid   |
       
-       @GraphPage
+   @GraphPage
   Scenario: Validate tryButton Page graphRepresentation
     Given The user is in "graph" page
     When the user clicks on graphRepresentation page
@@ -62,7 +62,7 @@ Feature: Reusable Feature
     
     
     
-    @GraphPageLogout
+  @GraphPageLogout
   Scenario: Logout from the portal
     Given The user is on  practice questions of the Page 
     When the user clicks signout
