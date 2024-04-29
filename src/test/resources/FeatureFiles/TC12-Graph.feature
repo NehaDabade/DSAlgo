@@ -35,7 +35,7 @@ Feature: Reusable Feature
       | println 'Welcome' | Invalid |
       | print 'Welcome'   | valid   |
       
-       @GraphPage
+   @GraphPage
   Scenario: Validate tryButton Page graphRepresentation
     Given The user is in "graph" page
     When the user clicks on graphRepresentation page
