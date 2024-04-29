@@ -69,6 +69,7 @@ Feature: Reusable Feature
   	Given The user is in "linked-list" page
     When User see "Topics Covered" options
     Then The user clicks on Traversal page
+    Then User scroll down the page
     When The user clicks Try Here button on the "traversal" page
     When The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button
@@ -84,6 +85,7 @@ Feature: Reusable Feature
     When User see "Topics Covered" options
     Then User scroll down the page
     Then The user clicks on Insertion page
+    Then User scroll down the page
     When The user clicks Try Here button on the "insertion-in-linked-list" page
     When The user will be redirected to tryEditor page with a Run button to test
     And The user enters <code> in tryEditor page and user clicks Run button

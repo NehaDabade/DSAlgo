@@ -54,12 +54,10 @@ public class Hooks extends TestWatcher {
 	  scenario.attach(screenshot,"image/png",scenario.getName());
 		  }
 	  }
-	  
-//	  @After
-//	 public void browserQuit() {
-//		       driver.close();
-//	  
-//	  }
+	  @After("@GraphPageLogout")
+		public void quit() {
+			driver.quit();
+		}
 }
 		  
 

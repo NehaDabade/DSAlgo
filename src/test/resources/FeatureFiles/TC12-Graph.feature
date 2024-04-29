@@ -62,11 +62,8 @@ Feature: Reusable Feature
     
     
     
-    @GraphPage
-    
+    @GraphPageLogout
   Scenario: Logout from the portal
-  
     Given The user is on  practice questions of the Page 
-    
     When the user clicks signout
     Then The user will be on home page

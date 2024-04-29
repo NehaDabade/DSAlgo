@@ -75,6 +75,7 @@ public class PracticeQuestionSteps extends BasePage {
 		String act_url = driver.getCurrentUrl();
 		String exp_url = "https://dsportalapp.herokuapp.com/tryEditor";
 		Assert.assertEquals(exp_url, act_url);
+		Thread.sleep(2000);
 	}
 
 	@And("The user enters {int} in tryEditor page and user clicks Run button")
