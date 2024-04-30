@@ -15,8 +15,13 @@ Feature: Reusable Feature
     Then The user clicks on Introduction page
     When The user clicks Try Here button on the "introduction" page
     When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
+   
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
+
     Examples: 
       | code  | status  |
       | 0			| valid   |
@@ -29,12 +34,18 @@ Feature: Reusable Feature
     Then The user clicks on Creating Linked List page
     When The user clicks Try Here button on the "creating-linked-list" page
     When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
+  
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
-   Examples: 
+
+    Examples: 
       | code  | status  |
       | 0			| valid   |
       | 1			| Invalid |
+
 
   @LinkedListPage
   Scenario: Validating Types of Linked List link 
@@ -43,8 +54,13 @@ Feature: Reusable Feature
     Then The user clicks on Types of Linked List page
     When The user clicks Try Here button on the "types-of-linked-list" page
 		When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
-    Then The user will be presented with the run output <code> and status is <status>   
+  
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
+    Then The user will be presented with the run output <code> and status is <status>
+
     Examples: 
       | code  | status  |
       | 0			| valid   |
@@ -57,8 +73,13 @@ Feature: Reusable Feature
     Then The user clicks on Implement Linked List in Python page
     When The user clicks Try Here button on the "implement-linked-list-in-python" page
     When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
+    
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
+
     Examples: 
       | code  | status  |
       | 0			| valid   |
@@ -72,9 +93,14 @@ Feature: Reusable Feature
     Then User scroll down the page
     When The user clicks Try Here button on the "traversal" page
     When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
+   
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
-     Examples: 
+
+    Examples: 
       | code  | status  |
       | 0			| valid   |
       | 1			| Invalid |
@@ -88,13 +114,17 @@ Feature: Reusable Feature
     Then User scroll down the page
     When The user clicks Try Here button on the "insertion-in-linked-list" page
     When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
+  
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
+
     Examples: 
       | code  | status  |
       | 0			| valid   |
       | 1			| Invalid |
-
 
   @LinkedListPage
   Scenario: Validating Deletion link 
@@ -104,8 +134,13 @@ Feature: Reusable Feature
     Then The user clicks on Deletion page
     When The user clicks Try Here button on the "deletion-in-linked-list" page
     When The user will be redirected to tryEditor page with a Run button to test
-    And The user enters <code> in tryEditor page and user clicks Run button
+  
+  @LinkedListPage
+  Scenario Outline: Validate Run Button Page with  Data
+    Given The user is in TryEditor page
+    When The user enters <code> in tryEditor page and user clicks Run button
     Then The user will be presented with the run output <code> and status is <status>
+
     Examples: 
       | code  | status  |
       | 0			| valid   |

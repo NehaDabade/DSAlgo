@@ -184,7 +184,11 @@ public class helperClassStepDefi extends BasePage {
 	@When("The user clicks Try Here button on the {string} page")
 	public void the_user_clicks_try_here_button_on_the_page(String string) throws InterruptedException {
 		Actions action = new Actions(driver);
-		action.moveToElement(base.getHpc().tryherebtn).click().perform();
+		action.moveToElement(base.getHpc().tryherebtn).perform();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(base.getHpc().tryherebtn));
+		webElement.click();
+		//action.moveToElement(webElement).click().perform();
 		base.getLogger().info("****User click try here button*****");
 	}
 
