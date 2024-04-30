@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 
 import DriverFactory.BasePage;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
@@ -31,8 +30,6 @@ public class Hooks extends TestWatcher {
 
 		if (driver == null) {
 			driver = base.initilizeBrowser();
-			// p = base.getProperties();
-			// driver.get(p.getProperty("appURLlogin"));
 			base.InitializePageObject(driver, sce);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -42,17 +39,20 @@ public class Hooks extends TestWatcher {
 	public static WebDriver getDriver() {
 		return driver;
 	}
-
+	
+       
+	@After
 	public void tearDown(Scenario scenario) {
 
 		// this is for cucumber junit report
 		if (scenario.isFailed()) {
 
-			TakesScreenshot ts = (TakesScreenshot) base.getDriver();
-			byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+			TakesScreenshot ts = (TakesScreenshot) getDriver();
+			final byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenario.getName());
 		}
 	}
+	
 	@After("@GraphPageLogout")
 	public void quit() {
 		if(driver!= null) {
