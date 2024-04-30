@@ -38,29 +38,25 @@ public class BasePage {
 	public Properties p;
 	public Logger logger;
 
-	public helperClass hpc;
-	public SignIn loginObj;
-	public StackPage stackObj;
-	public DsIntroduction DsintroObj;
-	public DSRegistration registrationObj;
-	public verifyUtil verifyObj;
-	public GraphPage graphPageObj;
-	public Tree treePageObj;
+	private helperClass hpc;
+	private SignIn loginObj;
+	private StackPage stackObj;
+	private DsIntroduction DsintroObj;
+	private DSRegistration registrationObj;
+	private verifyUtil verifyObj;
+	private GraphPage graphPageObj;
+	private Tree treePageObj;
 	private ArrayPage arrayPage;
 	private ArrayPracticePage arrayPracticePage;
 	private LinkedListPage linkedlistPage;
 	private QueuePage queuepage;
-	public DataStructureIntro dsiPageObj;
-	public Actions action;
+	private DataStructureIntro dsiPageObj;
+	private Actions action;
 
 	public Actions getAction() {
 		return action;
 	}
-
-	public void setAction(Actions action) {
-		this.action = action;
-	}
-
+	
 	public DataStructureIntro getDsiPageObj() {
 		return dsiPageObj;
 	}
@@ -184,10 +180,6 @@ public class BasePage {
 		return driver;
 
 	}
-
-//	public WebDriver getDriver() {
-//		return driver;
-//	}
 
 	public Properties getProperties() throws IOException {
 		FileReader file = new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\config.properties");

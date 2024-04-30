@@ -17,7 +17,6 @@ public class Hooks extends TestWatcher {
 
 	private static WebDriver driver;
 	private BasePage base;
-	// private Properties p;
 	private Scenario sce;
 
 	public Hooks(BasePage base) throws IOException {
@@ -54,7 +53,7 @@ public class Hooks extends TestWatcher {
 	}
 	
 	@After("@GraphPageLogout")
-	public void quit() {
+	public void browserquit() {
 		if(driver!= null) {
 		driver.quit();
 		}

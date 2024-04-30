@@ -75,7 +75,7 @@ public class GraphPageStep extends BasePage {
 	public void the_user_will_be_on_home_page() throws IOException {
 		base.getLogger().info("Check Registration URL ....");
 		p=base.getProperties();
-		boolean urlcheck = base.hpc.urlVerify(p.getProperty("appurlHome"));
+		boolean urlcheck = base.getHpc().urlVerify(p.getProperty("appurlHome"));
 		try {
 
 			if (urlcheck == true) {

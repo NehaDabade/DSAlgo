@@ -72,7 +72,7 @@ import pageObjects.verifyUtil;
 	public void the_user_should_should_be_redirected_to(String string) throws IOException {
 		base.getLogger().info("Check Registration URL ....");
 		p=base.getProperties();
-		boolean urlcheck = base.hpc.urlVerify(p.getProperty("appURLRegistration"));
+		boolean urlcheck = base.getHpc().urlVerify(p.getProperty("appURLRegistration"));
 		try {
 
 			if (urlcheck == true) {
