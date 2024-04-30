@@ -16,5 +16,5 @@ Feature: Registration with valid and invalid credentials
       | sdet1        |       12345 |           12345 | password_mismatch:The two password fields didn’t match. | Invalid |
       | 111746789944 | numpy@123   | numpy@123       | password_mismatch:The two password fields didn’t match. | Invalid |
       | @#$%^        | numpy@123   | numpy@123       | password_mismatch:The two password fields didn’t match. | Invalid |
-      | Research654  | numpy@123   | numpy@123       | New Account Created. You are logged in as Research654  | Valid   |
+      | ReSearch123  | numpy@123   | numpy@123       | New Account Created. You are logged in as ReSearch123  | Valid   |
 

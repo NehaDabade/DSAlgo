@@ -92,9 +92,10 @@ public class PracticeQuestionSteps extends BasePage {
 	}
 	
 	@Given("User clicks Submit button")
-	public void user_clicks_submit_button() {
+	public void user_clicks_submit_button() throws InterruptedException {
 		base.InitializePageObject(driver, sce);
 		base.getHpc().ClickSubmit();
+		Thread.sleep(500);
 		logger.info("****User clicks Submit button*****");
 	}
 	

@@ -31,7 +31,6 @@ public class Hooks extends TestWatcher {
 			driver = base.initilizeBrowser();
 			base.InitializePageObject(driver, sce);
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		}
 	}
 
@@ -41,7 +40,7 @@ public class Hooks extends TestWatcher {
 	
        
 	@After
-	public void tearDown(Scenario scenario) {
+	public void tearDown(Scenario scenario) throws InterruptedException {
 
 		// this is for cucumber junit report
 		if (scenario.isFailed()) {
