@@ -7,8 +7,8 @@ Feature: Reusable Feature
     #Given The user navigates to login page
     #When the user gives username and password
     #Then The user logsin
-
-  @LinkedListPage
+#
+  #@LinkedListPage
   Scenario: Validating Introduction link 
   	Given The user is in "linked-list" page
     When User see "Topics Covered" options

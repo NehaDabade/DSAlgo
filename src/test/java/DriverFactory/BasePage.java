@@ -185,9 +185,9 @@ public class BasePage {
 
 	}
 
-	public WebDriver getDriver() {
-		return driver;
-	}
+//	public WebDriver getDriver() {
+//		return driver;
+//	}
 
 	public Properties getProperties() throws IOException {
 		FileReader file = new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\config.properties");
