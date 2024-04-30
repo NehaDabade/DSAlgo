@@ -52,7 +52,7 @@ public class LinkedListPageSteps extends BasePage {
 		base.getLogger().info("The user clicks on Traversal page");
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getLinkedListPage().traversal).click().perform();
-		//Thread.sleep(2000);
+		
 	}
 
 	@When("The user clicks on Insertion page")
@@ -60,7 +60,7 @@ public class LinkedListPageSteps extends BasePage {
 		base.getLogger().info("The user clicks on Insertion page");
 		Actions action = new Actions(driver);
 		action.moveToElement(base.getLinkedListPage().insertion).click().perform();
-		//Thread.sleep(2000);
+		
 	}
 
 	@When("The user clicks on Deletion page")
